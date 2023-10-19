@@ -7,6 +7,7 @@ import './index.css';
 import Home from './pages/Home/Home';
 import About from './pages/AboutUs/About';
 import PageNotFound from './pages/404/PageNotFound';
+import OrderPage from './pages/OrderPage/OrderPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,6 +18,7 @@ root.render(
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<PageNotFound />} />
+            <Route path="/order" element={<OrderPage />} />
           </Routes>
         </div>
     }/>

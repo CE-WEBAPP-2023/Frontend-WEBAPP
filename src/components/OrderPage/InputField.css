@@ -1,0 +1,18 @@
+.input-field {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.input-field label {
+    text-align: left;
+}
+
+
+.input-field input {
+    background-color: #fbe3ca;
+    border-radius: 20px;
+    height: 30px;
+    padding: 10px;
+    width: 250px; /* Make text fields take up the full width of the container */
+}
