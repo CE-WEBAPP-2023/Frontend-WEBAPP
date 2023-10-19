@@ -30,12 +30,20 @@ function OrderPage() {
             [name]: value,
         });
     }
+    function handleOkClick() {
+        setFormData({
+            ...formData,
+            food: '',
+        });
+        setCount(1);
+    }
     function handleSubmit() {
         console.log(formData);
     }
 
     return (
         <div className="orderpage">
+            <button className='back'>BACK</button>
             <h1>กรอกข้อมูลส่วนตัว</h1>
             <InputField name='fname' title='ชื่อจริง' placeholder='นายสมชาย' value={formData.fname} onChange={handleInputChange} />
             <InputField name='lname' title='นามสกุล' placeholder='ชายสมชื่อ' value={formData.lname} onChange={handleInputChange} />
@@ -49,6 +57,7 @@ function OrderPage() {
                     <p>{count}</p>
                     <button onClick={increment}>+</button>
                 </div>
+                <button className='ok' onClick={handleOkClick}>ตกลง</button>
             </div>
             <button className='submit' onClick={handleSubmit}>ถัดไป</button>
         </div>

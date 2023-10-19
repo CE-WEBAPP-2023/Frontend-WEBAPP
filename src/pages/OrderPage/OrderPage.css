@@ -1,62 +1,192 @@
-.orderpage {
-    background-color: #f5f6f6;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    text-align: center;
-}
+/* for Macbook */
+@media (min-width: 1024px) and (max-width: 1500px) {
+    .orderpage {
+        padding-top: 30px;
+        padding-bottom: 20px;
+        background-color: #f5f6f6;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        text-align: center;
+        max-height: 100vh;
+        /* overflow-y: auto; */
+    }
 
-.orderpage h1 {
-    color: black;
-    font-size: 1.6rem;
-    margin: 10px;
-}
+    .back {
+        position: fixed; /* Set the position to absolute */
+        top: 100px; /* Position it at the top of the page */
+        left: 80px; /* Position it at the left of the page */
+        background-color: red;
+        color: white;
+        font-size: large;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        border-radius: 30px;
+    }
 
-.menu {
-    margin: 20px;
-    border: 2px solid black;
-    /* Add a 1px solid border with a black color (adjust as needed) */
-    padding: 30px;
-    /* Add padding to create space between the content and the border (adjust as needed) */
-    background-color: #f9a72b;
-}
+    .orderpage h1 {
+        color: black;
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+    }
 
-.menu input {
-    background-color: white;
-    margin-bottom: 20px;
-    border-radius: 20px;
-    padding: 10px;
-    width: 220px;
-}
+    .menu {
+        margin-bottom: 20px;
+        border: 2px solid black;
+        /* Add a 1px solid border with a black color (adjust as needed) */
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+        /* Add padding to create space between the content and the border (adjust as needed) */
+        background-color: #f9a72b;
+        border-radius: 25px;
+    }
 
-.counter {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
+    .menu input {
+        background-color: white;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        padding: 10px;
+        width: 220px;
+    }
 
-.counter button {
-    color: white;
-    font-size: 20px;
-    font-weight: bolder;
-    margin-left: 15px;
-    margin-right: 15px;
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: #f9a72b;
-    border-radius: 20px;
-    background-color: #4F2315;
-}
+    .ok {
+        padding: 5px;
+        margin-top: 15px;
+        border-radius: 10px;
+        background-color: saddlebrown;
+        color: white;
+    }
 
-.submit {
-    margin-top: 15px;
-    border-radius: 20px;
-    padding: 10px;
-    width: 120px;
-    background-color: #4da537;
-    color: white;
-    font-size: larger;
-    font-weight: bold;
+    .counter {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .counter button {
+        color: white;
+        font-size: 20px;
+        font-weight: bolder;
+        margin-left: 15px;
+        margin-right: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: #f9a72b;
+        border-radius: 20px;
+        background-color: #4da537;
+    }
+
+    .submit {
+        margin-bottom: 20px;
+        border-radius: 20px;
+        padding: 10px;
+        width: 120px;
+        background-color: #4da537;
+        color: white;
+        font-size: larger;
+        font-weight: bold;
+    }
+}
+/* for Iphone 13 PRO */
+@media (min-width: 320px) and (max-width: 900px) {
+    .orderpage {
+        padding-top: 150px;
+        padding-bottom: 20px;
+        background-color: #f5f6f6;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        text-align: center;
+        max-height: 100vh;
+        overflow-y: auto;
+    }
+
+    .back {
+        position: fixed;
+        top: 70px;
+        left: 10px;
+        background-color: red;
+        color: white;
+        font-size: small;
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 30px;
+    }
+
+    .orderpage h1 {
+        color: black;
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+
+    .menu {
+        margin-bottom: 20px;
+        border: 2px solid black;
+        /* Add a 1px solid border with a black color (adjust as needed) */
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+        /* Add padding to create space between the content and the border (adjust as needed) */
+        background-color: #f9a72b;
+        border-radius: 25px;
+        margin: 5px;
+    }
+
+    .menu input {
+        background-color: white;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        padding: 10px;
+        width: 220px;
+    }
+
+    .ok {
+        padding: 5px;
+        margin-top: 15px;
+        border-radius: 10px;
+        background-color: saddlebrown;
+        color: white;
+    }
+
+    .counter {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .counter button {
+        color: white;
+        font-size: 20px;
+        font-weight: bolder;
+        margin-left: 15px;
+        margin-right: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: #f9a72b;
+        border-radius: 20px;
+        background-color: #4da537;
+    }
+
+    .submit {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        padding: 10px;
+        width: 120px;
+        background-color: #4da537;
+        color: white;
+        font-size: larger;
+        font-weight: bold;
+    }
 }
