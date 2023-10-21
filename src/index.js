@@ -18,7 +18,7 @@ root.render(
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<PageNotFound />} />
-            <Route path="/order" element={<OrderPage />} />
+            <Route path="/order/:canteen" element={<OrderPage />} />
           </Routes>
         </div>
     }/>

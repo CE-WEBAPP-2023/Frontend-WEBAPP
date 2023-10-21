@@ -42,18 +42,6 @@ function OrderPage() {
     return (
         <div className="orderpage">
             <div className='box'>
-                <div className='menulist'>
-                    {orders.map((order, index) => (
-                        <div key={index} className='order'>
-                            <div className='ordername'>
-                                <p>{order.item}</p>
-                            </div>
-                            <div className='ordercount'>
-                                <p>x {order.count}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
                 <div className='inputbox'>
                     <div className='inputbox'>
                         <h1>กรอกข้อมูลส่วนตัว</h1>
@@ -84,8 +72,20 @@ function OrderPage() {
                         </div>
                     </div>
                 </div>
+                <div className='menulist'>
+                    {orders.map((order, index) => (
+                        <div key={index} className='order'>
+                            <div className='ordername'>
+                                <p>{order.item}</p>
+                            </div>
+                            <div className='ordercount'>
+                                <p>x {order.count}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <button className='submit'>ถัดไป</button>
             </div>
-            <button className='submit'>ถัดไป</button>
         </div>
     );
 }

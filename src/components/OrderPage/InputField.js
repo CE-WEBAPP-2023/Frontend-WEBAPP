@@ -1,7 +1,8 @@
 import './InputField.css';
 
 function InputField(props) {
-    const { name, title, placeholder } = props
+    const { name, title, placeholder, value, onChange } = props
+    
     return (
         <div className='input-field'>
             <label htmlFor={name}>{title}</label>

@@ -1,126 +1,281 @@
-.orderpage {
-    background-color: #f5f6f6;
-    display: grid;
-    /* grid-template-columns: 1fr 1fr; */
-    grid-template-rows: 1fr 1fr;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    text-align: center;
-    padding: 10px;
+@media (min-width: 1024px){
+    .orderpage {
+        background-color: #f5f6f6;
+        display: grid;
+        /* grid-template-columns: 1fr 1fr; */
+        grid-template-rows: 1fr 1fr;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .orderpage h1 {
+        color: black;
+        font-size: 1.6rem;
+        margin: 10px;
+    }
+
+    .box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* overflow: hidden; */
+    }
+
+    .menulist {
+        margin-top: 20px;
+        margin-left: 40px;
+        width: 90%;
+        height: 70vh;
+        border: solid 2px black;
+        border-radius: 20px;
+        overflow-y: scroll;
+        overflow-x:hidden;
+        flex-direction: column;
+    }
+
+    .order {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        margin: 20px;
+        border: 2px solid black;
+        border-radius: 20px;
+        font-family: 'Mitr', sans-serif;
+        /* Add a 1px solid border with a black color (adjust as needed) */
+        padding: 10px;
+        /* Add padding to create space between the content and the border (adjust as needed) */
+        background-color: #febf40;
+    }
+
+    .personinputbox {
+        display: grid;
+        width: fit-content;
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+    }
+
+    .menu {
+        display: grid;
+        /* grid-template-rows: 1fr 1fr; */
+        margin: 15px;
+        border: 2px solid black;
+        border-radius: 20px;
+        /* Add a 1px solid border with a black color (adjust as needed) */
+        padding: 20px;
+        /* Add padding to create space between the content and the border (adjust as needed) */
+        background-color: #febf40;
+    }
+
+    .userinput {
+        display: grid;
+        /* grid-template-columns: 1fr 1fr; */
+        grid-template-rows: 1fr;
+    }
+
+    .userinput input[type="text"] {
+        font-family: 'Mitr', sans-serif;
+        font-size: 15px;
+        padding-left: 20px;
+    }
+
+    .menu input {
+        background-color: white;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        padding: 10px;
+        /* width: 100%; */
+    }
+
+    .counter {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .counter button {
+        color: white;
+        font-size: 20px;
+        font-weight: bolder;
+        margin-left: 15px;
+        margin-right: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 5px;
+        background-color: #febf40;
+        border-radius: 25px;
+        background-color: #4F2315;
+        height: 80%;
+    }
+
+    .adder {
+        color: white;
+        font-size: 15px;
+        /* font-weight: bolder; */
+        margin-top: 15px;
+        margin-left: 15px;
+        margin-right: 15px;
+        padding: 5px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 25px;
+        background-color: #4F2315;
+        width: fit-content;
+        justify-self: center;
+        font-family: 'Mitr', sans-serif;
+    }
+
+    .submit {
+        margin-top: 15px;
+        border-radius: 25px;
+        padding: 10px;
+        width: 120px;
+        background-color: #4da537;
+        color: white;
+        font-size: larger;
+        /* font-weight: bold; */
+        justify-self: center;
+        margin-bottom: 20px;
+        font-family: 'Mitr', sans-serif;
+    }
+
+    .counter button, .adder, .submit {
+        cursor: pointer;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease 0s;
+        outline: none;
+        border: none;
+    }
 }
 
-.orderpage h1 {
-    color: black;
-    font-size: 1.6rem;
-    margin: 10px;
-}
+@media (min-width: 320px) and (max-width: 900px) {
+    .orderpage {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        background-color: #f5f6f6;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        text-align: center;
+        max-height: 100vh;
+        overflow-y: auto;
+    }
 
-.box {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* overflow: hidden; */
-}
+    .box {
+        margin-top: 100px;
+        margin-bottom: 50px;
+    }
 
-.menulist {
-    margin-top: 20px;
-    width: 100%;
-    height: 65vh;
-    border: solid 2px black;
-    overflow-y: scroll;
-    overflow-x:hidden;
-    flex-direction: column;
-}
+    .orderpage h1 {
+        color: black;
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
 
-.order {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    margin: 20px;
-    border: 2px solid black;
-    /* Add a 1px solid border with a black color (adjust as needed) */
-    padding: 30px;
-    /* Add padding to create space between the content and the border (adjust as needed) */
-    background-color: #f9a72b;
-}
+    .order {
+        margin: 20px;
+        border: 2px solid black;
+        border-radius: 20px;
+        font-family: 'Mitr', sans-serif;
+        /* Add a 1px solid border with a black color (adjust as needed) */
+        padding: 10px;
+        /* Add padding to create space between the content and the border (adjust as needed) */
+        background-color: #febf40;
+    }
 
-.personinputbox {
-    display: grid;
-    width: fit-content;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
-}
+    .personinputbox {
+        width: fit-content;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+    }
 
-.menu {
-    display: grid;
-    /* grid-template-rows: 1fr 1fr; */
-    margin: 20px;
-    border: 2px solid black;
-    /* Add a 1px solid border with a black color (adjust as needed) */
-    padding: 30px;
-    /* Add padding to create space between the content and the border (adjust as needed) */
-    background-color: #f9a72b;
-}
+    .menu {
+        margin-bottom: 20px;
+        border: 2px solid black;
+        /* Add a 1px solid border with a black color (adjust as needed) */
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+        /* Add padding to create space between the content and the border (adjust as needed) */
+        background-color: #febf40;
+        border-radius: 25px;
+        margin: 5px;
+    }
 
-.userinput {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-}
+    .userinput input[type="text"] {
+        font-family: 'Mitr', sans-serif;
+        height: 15px;
+        width: fit-content;
+        font-size: 15px;
+        padding: 10px;
+        padding-left: 10px;
+        margin: 5px;
+        margin-bottom: 15px;
+        border-radius: 20px;
+    }
 
-.menu input {
-    background-color: white;
-    margin-bottom: 20px;
-    border-radius: 20px;
-    padding: 10px;
-    width: 100%;
-}
+    .adder {
+        font-size: 15px;
+        margin-top: 15px;
+        margin-left: 15px;
+        margin-right: 15px;
+        padding: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 25px;
+        background-color: #4F2315;
+        width: fit-content;
+        justify-self: center;
+        font-family: 'Mitr', sans-serif;
+        color: white;
+    }
 
-.counter {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
+    .counter {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
 
-.counter button {
-    color: white;
-    font-size: 20px;
-    font-weight: bolder;
-    margin-left: 15px;
-    margin-right: 15px;
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: #f9a72b;
-    border-radius: 20px;
-    background-color: #4F2315;
-    height: 80%;
-}
+    .counter button {
+        color: white;
+        font-size: 20px;
+        font-weight: bolder;
+        margin-left: 15px;
+        margin-right: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: #f9a72b;
+        border-radius: 20px;
+        background-color: #4F2315;
+    }
 
-.adder {
-    color: white;
-    font-size: 20px;
-    font-weight: bolder;
-    margin-left: 15px;
-    margin-right: 15px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 20px;
-    background-color: #4F2315;
-    width: fit-content;
-    justify-self: center;
-}
+    .submit {
+        margin-top: 15px;
+        border-radius: 25px;
+        padding: 10px;
+        width: 120px;
+        background-color: #4da537;
+        color: white;
+        font-size: larger;
+        /* font-weight: bold; */
+        justify-self: center;
+        margin-bottom: 30px;
+        font-family: 'Mitr', sans-serif;
+    }
 
-.submit {
-    margin-top: 15px;
-    border-radius: 20px;
-    padding: 10px;
-    width: 120px;
-    background-color: #4da537;
-    color: white;
-    font-size: larger;
-    font-weight: bold;
-    justify-self: center;
+    .counter button, .adder, .submit {
+        cursor: pointer;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease 0s;
+        outline: none;
+        border: none;
+    }
 }
