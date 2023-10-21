@@ -1,24 +1,49 @@
-import { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 
 import '../OrderInCanteen/OrderInCanteen.css';
 
 
 
-import React, { useState } from 'react';
+
 
 function Pickupall() {
+    const [data, setData] = useState([]);
+    const [loading,setLoading] = useState(false);
+    // const canid = 1;
+    useEffect(() => {
+
+      fetch('http://localhost:2580/api/Order/all')
+        .then(response => response.json())
+        
+        .then(data => { 
+          console.log(data)
+          
+          // setData(data.filter((can) => (can.canteen.canteenId === canid)))
+          setData(data);
+        })
+        .catch(error => console.error(error));
+   
+        setLoading(true);
+        setTimeout(() => {
+          setLoading(false);
+        },2000); }, []);
+    
     return (
       <div className="OrderInCanteen">
-          <div className='OrderInCanteen-header'> การรับหิ้้วของคุณ </div>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        {loading ? ( <div className='loadingpage'> <div className='loader'></div> </div> ) : ( <div> 
+          <div className='OrderInCanteen-header'> การรับหิ้วของโรงอาหาร  </div>
             <div className='OrderALL'>
-                <Order_Pickup />
-                <Order_Pickup />
-                <Order_Pickup />
-                <Order_Pickup />
-                <Order_Pickup />
+            {data.map((received, index) => (
+        
+        <Order_Pickup key={index} fname={received.user.name}lname={received.user.lastName} phonetel={received.user.phoneNumber} userlocation={received.userLocation} food={received.food} ridername={received.raider.name} ridertel={received.raider.phoneNumber}/>
+          
+     
+    ))}
             
             </div>
-              
+            </div> )} 
+    
       </div>
     );
   }
@@ -45,6 +70,7 @@ function Pickupall() {
 
     render() {
          const { isListShown } = this.state;
+         const {fname, lname, phonetel, userlocation ,food ,orderid ,ridername,ridertel} = this.props;
         return (
             <div className="Order">
                 <div className='Order-card'>
@@ -61,21 +87,21 @@ function Pickupall() {
                             <span class="material-symbols-outlined">
                                 account_circle  
                             </span> 
-                            <a>ชื่อลูกค้า</a>
+                            <a>{fname} {lname}</a>
                             </div>
 
                             <div className='grid-order-detail'>
-                            <span className="material-symbols-outlined">
+                            <span class="material-symbols-outlined">
                                 call 
                             </span> 
-                            <a>เบอร์โทร</a>
+                            <a>{phonetel}</a>
                             </div>
 
                             <div className='grid-order-detail'>
-                            <span className="material-symbols-outlined">
+                            <span class="material-symbols-outlined">
                                 near_me  
                             </span> 
-                            <a>ปลายทาง</a>
+                            <a>{userlocation}</a>
                             </div>
                                
                             </div>
@@ -111,15 +137,9 @@ function Pickupall() {
                         <h4>เมนู</h4>
                         <div className='Order-card-menudetail-detail-menu'>
                             <div className='Order-card-menudetail-detail-menu-overflow'>
-                                <Menu_loop />
-                                <Menu_loop />
-                                <Menu_loop />
-                                <Menu_loop />
-                                <Menu_loop />
-                                <Menu_loop />
-                                <Menu_loop />
-                                <Menu_loop />
-                                <Menu_loop />
+                            {food.map((food, index) => (
+                                    <Menu_loop key={index} foodname={food.name} foodquatiy={food.quantity} />
+                                ))}
                             </div>
                         
                         </div>
@@ -132,8 +152,13 @@ function Pickupall() {
                                 <a>สถานะ:</a> <br />
                                 <button className='btn-order-status-accept blue'>หิ้วแล้ว</button>
                             </div>
-                            <div className='btn-order-agree'>
-                            
+                            <div className='btn-order-agree pick'>
+                                <a>รายละเอียดผู้รับหิ้ว</a>
+                                <p>ชื่อ: {ridername}
+                                <br />
+                                เบอร์โทร: {ridertel}
+                                </p> <br />
+                                
                             </div>
                                 
                         </div>
@@ -147,13 +172,12 @@ function Pickupall() {
 
 class Menu_loop extends Component {
     render() {
+        const {foodname, foodquatiy} = this.props;
         return (
             <div className='Order-card-menudetail-detail-menu-section'>
-                <div className='Order-card-menudetail-detail-menu-section-count'>1</div>
-                <div className='Order-card-menudetail-detail-menu-section-name'>ข้าวมันไก่ทอด
-                <p>ไม่ใส่แตงกวา เพิ่มซีฮ๊วหวาน</p>
-                </div>
-                <div className='Order-card-menudetail-detail-menu-section-price'>45</div>
+                 <div className='Order-card-menudetail-detail-menu-section-count'><a>{foodquatiy}</a></div>
+                <div className='Order-card-menudetail-detail-menu-section-name'>{foodname}</div>
+               
             </div>  
         );
 
