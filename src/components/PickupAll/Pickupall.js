@@ -65,14 +65,14 @@ function Pickupall() {
                             </div>
 
                             <div className='grid-order-detail'>
-                            <span class="material-symbols-outlined">
+                            <span className="material-symbols-outlined">
                                 call 
                             </span> 
                             <a>เบอร์โทร</a>
                             </div>
 
                             <div className='grid-order-detail'>
-                            <span class="material-symbols-outlined">
+                            <span className="material-symbols-outlined">
                                 near_me  
                             </span> 
                             <a>ปลายทาง</a>

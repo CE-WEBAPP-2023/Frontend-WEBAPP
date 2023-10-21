@@ -6,7 +6,7 @@ function InputField(props) {
     return (
         <div className='input-field'>
             <label htmlFor={name}>{title}</label>
-            <input type="text" placeholder={placeholder} id={name} name={name} value={value} onChange={onChange}/>
+            <input type="text" placeholder={placeholder} id={name} name={name}/>
         </div>
     );
 }
