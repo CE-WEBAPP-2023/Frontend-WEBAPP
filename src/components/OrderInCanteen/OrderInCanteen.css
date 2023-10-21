@@ -190,7 +190,7 @@
 .Order-card-menudetail {
     padding-left: 12px;
     padding-right: 12px;
-   
+    
     
     
 }
@@ -202,7 +202,7 @@
     border-radius: 10px;
     padding-left: 20px;
     
-    
+    margin-bottom: 14px;
     gap: 3px;
    
 }
@@ -243,6 +243,9 @@
     padding-right: 10px;
     padding-top: 5px;
     padding-bottom: 2px;    
+    
+}
+.Order-card-menudetail-detail {
     
 }
 
@@ -496,7 +499,7 @@ font-size: 16px;
     color: #502215;
 }
 .form-input-detail {
-    width: 100%;
+    width: 90%;
     height: 40px;
     border: 2px solid #502215;
     border-radius: 20px;
@@ -505,7 +508,7 @@ font-size: 16px;
 }
 
 .form-input-detail[type="text"] {
-    padding: 20px; /* ปรับค่า padding ตามที่คุณต้องการ */
+    padding-left: 20px; /* ปรับค่า padding ตามที่คุณต้องการ */
     font-size: 20px;
     
   }
