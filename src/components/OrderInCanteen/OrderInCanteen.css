@@ -1,16 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Mitr:wght@200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
 .OrderInCanteen {
     height: 100%;
     margin-bottom: 3rem;
-    display: grid;
-    grid-template-columns: repeat(autofit, minmax(300px,1fr));
-    overflow-y: scroll;
+    
+   
+    gap: 0;
+    
 }
 .OrderALL {
-    height: 100%;
-    margin-bottom: 3rem;
+    height:100%;
+    margin-bottom: 5rem;
+    padding-bottom: 50px;
     display: grid;
     grid-template-columns: repeat(autofit, minmax(300px,1fr));
     overflow-y: scroll;
+    align-content: start;
+    align-items: start;
+    
+    
+
 }
 
 .PickupALL {
@@ -19,29 +31,29 @@
     display: grid;
     grid-template-columns: repeat(autofit, minmax(300px,1fr));
     overflow-y: scroll;
+    
 }
 
-@media (min-width: 1024px) {
-    .OrderALL {
-      grid-template-columns: repeat(3, 1fr); /* 3 คอลัมน์ที่มีขนาดเท่ากับ 1fr */
-    }
-
-    .Order-card-menudetail.hidden{
-        max-height: 500px;
-    }
-
-    .btn-on-off-menu {
-        pointer-events: none;
-        display: none;
-    }
-  }
 
 
 .Order {
     display: block;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-left: 1.5rem;
     margin-right: 1.5rem;
+}
+
+.Order-pop {
+    display: block;
+    margin-top: 25px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    width: 350px;
+    
 }
 
 .Order-card {
@@ -81,7 +93,7 @@
 
 
 .Order-card-menudetail.visible {
-    max-height: 500px; /* ปรับค่า max-height เมื่อแสดง */
+    max-height: 600px; /* ปรับค่า max-height เมื่อแสดง */
   }
 
 
@@ -91,6 +103,13 @@
 .Order-card-btn {
     background: #EAE3E0;
     height: 120px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.Order-card-btn-popup {
+    background: #EAE3E0;
+    height: 260px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
@@ -182,6 +201,9 @@
     width: auto;
     border-radius: 10px;
     padding-left: 20px;
+    
+    
+    gap: 3px;
    
 }
 
@@ -190,26 +212,47 @@
     text-align: left;
     padding-top:10px;
     font-size: 20px;
+    margin-bottom: 5px;
 }
 
 .Order-card-menudetail-detail-menu-section {
     display: grid;
-    grid-template-columns: 0.2fr 1fr 0.3fr;
+    grid-template-columns: 0.2fr 1fr ;
     font-size: 18px;
     color: #502215;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+   
 }
+
 
 
 .Order-card-menudetail-detail-menu-section-count {
     /* background-color: aqua; */
     text-align: start;
     padding-left: 12px;
+    
+    
+    
+}
+.Order-card-menudetail-detail-menu-section-count a {
+    border: 2px solid #502215;
+    border-radius: 10px;
+    padding-left: 10px; 
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 2px;    
+    
 }
 
 .Order-card-menudetail-detail-menu-section-name {
     /* background: blue; */
     font-size: 20px;
     text-align: start;
+    padding-left: 20px;
+    
+    
 }
 
 .Order-card-menudetail-detail-menu-section-name p {
@@ -220,7 +263,7 @@
 
 .Order-card-menudetail-detail-menu-overflow {
     overflow-y: scroll;
-    height: 130px;
+    height: 100px;
 }
 
 
@@ -231,9 +274,11 @@
 
 .btn-order-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 10px;
+    grid-template-columns: 0.5fr 1fr;
+    padding-top: px;
     padding-left: 10px;
+    padding-right: 10px;
+
     height: auto;
 }
 
@@ -250,11 +295,24 @@
     /* background:#502215; */
     
     text-align: end;
-    margin-right: 20px;
+    
     margin-top: 18px;
 
 }
+
+.btn-order-agree.start {
+    /* background:#502215; */
     
+    text-align: start;
+    
+}
+.btn-order-agree.pick a {
+    color: #502215;
+}
+
+.btn-order-agree.pick p {
+    color: #502215;
+}
 
 .btn-order-status a {
     color: #502215;
@@ -291,6 +349,11 @@ font-size: 16px;
     background-color: #96BB7C;
 }
 
+.btn-order-status-accept.red {
+    background-color: #fd2f14;
+}
+
+
 
 
 
@@ -305,32 +368,21 @@ font-size: 16px;
     height: 70px;
     width: 140px;
     color: #ffffff;
-    
-    
-    
     border-radius: 10px;
-    
-    
-    border: 1px solid #502215;
-    
-    
+    border: 1px solid #502215;  
     box-sizing: border-box;
-    
-    
     display: inline-block;
     font-family: 'Mitr', sans-serif;
     font-size: 18px;
     line-height: 29px;
-    
     border: none;
     border-radius: 10px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
-    
     margin-bottom: 10px;
-    margin-left: 10px;
+    /* margin-left: 10px;    */
    
     }
 
@@ -358,6 +410,24 @@ font-size: 16px;
 .material-symbols-outlined {
     transition: transform 0.3s ease-in-out; /* เพิ่ม transition ให้เกิดเมื่อมีการเปลี่ยนแปลง transform */
   }
+
+  .material-symbols {
+    font-family: 'Material Symbols Rounded';
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+  }
+  
+  .material-symbols-fill {
+    font-family: 'Material Symbols Rounded';
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+  }
   
   .rotate180 {
     transform: rotate(180deg);
@@ -367,10 +437,11 @@ font-size: 16px;
     top: 0; /* ติดอยู่ที่ด้านบนของหน้าเว็บ */
     background-color: #ffffff; /* สีพื้นหลังของ div */
     padding: 10px; /* ตั้งค่าการระยะห่างของขอบภายใน div (หากต้องการ) */
-    z-index: 999; /* ตั้งค่าความสูงของหน้า div ให้อยู่บนสุด (หากมีแบบอื่นๆ อยู่บนหน้า) */
+    z-index: 0; /* ตั้งค่าความสูงของหน้า div ให้อยู่บนสุด (หากมีแบบอื่นๆ อยู่บนหน้า) */
     font-size: 20px;
     color: #502215;
     text-align: center;
+    height: fit-content;
   }
   
 
@@ -411,3 +482,153 @@ font-size: 16px;
     background: #fd2f14;
 }
 
+.form-hiip {
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 15px;
+}
+.form-hiip-detail {
+    text-align: start;
+}
+
+.form-hiip-detail a {
+    color: #502215;
+}
+.form-input-detail {
+    width: 100%;
+    height: 40px;
+    border: 2px solid #502215;
+    border-radius: 20px;
+    font-family: 'Mitr', sans-serif;
+    color: #502215;
+}
+
+.form-input-detail[type="text"] {
+    padding: 20px; /* ปรับค่า padding ตามที่คุณต้องการ */
+    font-size: 20px;
+    
+  }
+  .form-input-detail[type="text"]:hover {
+    background-color: #F0F0F0; /* สีพื้นหลังเมื่อ hover */
+  }
+
+.btn-order-status-cancel {
+    background: #fd2f14;
+    height: 50px;
+    width: 100px;
+
+    font-family: 'Mitr', sans-serif;
+  
+    margin-left: 10px;
+    margin-top: 20px;
+
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #F8EDE3;
+  
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+
+}
+
+.pop-up-overlay {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+    z-index: 1;
+
+    
+    
+  
+
+     /* display: none; */
+}
+
+
+  @media (min-width: 1024px) {
+    .OrderALL {
+      grid-template-columns: repeat(3, 1fr); /* 3 คอลัมน์ที่มีขนาดเท่ากับ 1fr */
+    }
+
+    .Order-card-menudetail.hidden{
+        max-height: 400px;
+    }
+
+    .btn-on-off-menu {
+        pointer-events: none;
+        display: none;
+    }
+
+    .Order-pop {
+        width: 800px;
+    }
+
+   
+  }
+
+  @media (min-width: 700px) {
+
+    .Order-pop {
+        width: 500px;
+    }
+
+  }
+
+  .error-border {
+    border: 2px solid red;
+    /* อื่น ๆ ที่คุณต้องการใส่ในกรอบสีแดง */
+  }
+
+  .btn-order-grid.popup {
+    padding-left: 0px;
+    
+  }
+
+
+ 
+  .loadingpage{
+    height: 100vh;
+    display: flex;
+    
+    justify-content: center;
+}
+.loader{
+    
+    height: 100px;
+    width: 100px;
+    margin-top: 30vh;
+    border: 12px solid #f3f3f3;
+    border-radius: 50%;
+    border-right-color: #FFBF41;
+    animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+    100%{
+        transform: rotate(360deg);
+    }   
+}
+
+@media (min-width: 700px) {
+    .loader{
+        height: 150px;
+        width: 150px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .loader{
+        height: 200px;
+        width: 200px;
+    }
+}
