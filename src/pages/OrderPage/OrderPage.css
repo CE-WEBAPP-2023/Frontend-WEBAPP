@@ -103,8 +103,8 @@
         font-weight: bolder;
         margin-left: 15px;
         margin-right: 15px;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
         padding-bottom: 5px;
         background-color: #febf40;
         border-radius: 25px;
@@ -120,8 +120,8 @@
         margin-left: 15px;
         margin-right: 15px;
         padding: 5px;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
         border-radius: 25px;
         background-color: #4F2315;
         width: fit-content;
