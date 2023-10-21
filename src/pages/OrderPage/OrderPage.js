@@ -1,9 +1,8 @@
 import './OrderPage.css';
 import InputField from '../../components/OrderPage/InputField';
 import React, { useState } from "react";
-const env = require('../../config.js')
-const APIURL = env.APIURL
-console.log(APIURL)
+import { APIURL } from '../../config';
+console.log(APIURL);
 
 function OrderPage() {
     const [count, setCount] = useState(1);

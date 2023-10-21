@@ -4,7 +4,7 @@ function InputField(props) {
     const { name, title, placeholder } = props
     return (
         <div className='input-field'>
-            <label for={name}>{title}</label>
+            <label htmlFor={name}>{title}</label>
             <input type="text" placeholder={placeholder} id={name} name={name}/>
         </div>
     );
