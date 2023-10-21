@@ -1,9 +1,6 @@
 // import logo from './logo.svg';
 import React, { Component, useEffect, useState } from 'react';
-
 import './OrderInCanteen.css';
-
-
 
 function OrderInCanteen() {
 

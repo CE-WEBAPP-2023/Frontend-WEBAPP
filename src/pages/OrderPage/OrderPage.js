@@ -1,6 +1,9 @@
 import './OrderPage.css';
 import InputField from '../../components/OrderPage/InputField';
 import React, { useState } from "react";
+const env = require('../../config.js')
+const APIURL = env.APIURL
+console.log(APIURL)
 
 function OrderPage() {
     const [count, setCount] = useState(1);
@@ -18,7 +21,6 @@ function OrderPage() {
     }
 
     function handleMenuNameChange(event) {
-        // Update the menu name when the input field changes
         setMenuName(event.target.value);
     }
 
@@ -79,7 +81,7 @@ function OrderPage() {
                                     <button onClick={increment}>+</button>
                                 </div>
                             </div>
-                            <button className='adder' onClick={addOrder}>add</button>
+                            <button className='adder' onClick={addOrder}>เพิ่ม</button>
                         </div>
                     </div>
                 </div>
