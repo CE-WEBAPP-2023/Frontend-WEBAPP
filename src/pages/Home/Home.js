@@ -9,11 +9,13 @@ import { Link } from "react-router-dom";
 function Home() {
     return (
         <div className="homepage">
-            <img src={image1} alt="Image1" className="top-left-image" />
-            <img src={image2} alt="Image2" className="mid-right-image" />
-            <img src={image3} alt="Image3" className="top-right-image" />
-            <img src={image4} alt="Image4" className="mid-left-image" />
-            <img src={image5} alt="Image5" className="bottom-right-image" />
+            <div className="images">
+                <img src={image1} alt="Image1" className="top-left-image" />
+                <img src={image2} alt="Image2" className="mid-right-image" />
+                <img src={image3} alt="Image3" className="top-right-image" />
+                <img src={image4} alt="Image4" className="mid-left-image" />
+                <img src={image5} alt="Image5" className="bottom-right-image" />
+            </div>
             <h1>BUSY?</h1>
             <h2>LET'S FIND <br /> SOMEONE WHO <br /> CAN DELIVER <br /> FOOD FOR YOU</h2>
             <Link to='/'>
