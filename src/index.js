@@ -23,9 +23,7 @@ root.render(
             <Route path="*" element={<PageNotFound />} />
             <Route path="OrderInCanteen/:canId" element={<OrderInCanteen />} />
             <Route path="Pickupall/:canId" element={<Pickupall />} />
-            
             <Route path="/order/:canteen" element={<OrderPage />} />
-            
           </Routes>
         </div>
     }/>
