@@ -4,6 +4,8 @@ import { APIURL } from '../../config';
 
 import axios from 'axios';
 
+import { useParams } from 'react-router-dom'; 
+
 import Order_Pickup from '../../components/OrderInCanteen_Pickup/Order_Pickup';
 
 import '../../components/OrderInCanteen_Pickup/OrderInCanteen.css'
@@ -13,9 +15,12 @@ import '../../components/OrderInCanteen_Pickup/OrderInCanteen.css'
 function Pickupall() {
     const [data, setData] = useState([]);
     const [loading,setLoading] = useState(false);
+    const canteenName = ["A","J","C","พระเทพ"]
+  const { canId } = useParams();
+  const Cid = parseInt(canId);
     // const canid = 1;
     useEffect(() => {
-
+      
     
 
       const fetchData = async () => {
@@ -23,8 +28,8 @@ function Pickupall() {
           const response = await axios.get(`${APIURL}/Order/grabbed`);
           const responseData = response.data;
           console.log(responseData);
-          // setData(data.filter((can) => (can.canteen.canteenId === canid)))
-          setData(responseData);
+          setData(responseData.filter((can) => (can.canteen.canteenId === Cid)))
+          console.log(data);
           setLoading(false);
         } catch (error) {
           console.error(error);
@@ -39,7 +44,7 @@ function Pickupall() {
       <div className="OrderInCanteen">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         {loading ? ( <div className='loadingpage'> <div className='loader'></div> </div> ) : ( <div className='bigBoy'> 
-          <div className='OrderInCanteen-header'> การรับหิ้วของโรงอาหาร  </div>
+          <div className='OrderInCanteen-header'> การรับหิ้วของโรงอาหาร {canteenName[Cid-1]}   </div>
             <div className='OrderALL'>
             {data.map((received, index) => (
         

@@ -21,8 +21,8 @@ root.render(
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<PageNotFound />} />
-            <Route path="OrderInCanteen" element={<OrderInCanteen />} />
-            <Route path="Pickupall" element={<Pickupall />} />
+            <Route path="OrderInCanteen/:canId" element={<OrderInCanteen />} />
+            <Route path="Pickupall/:canId" element={<Pickupall />} />
             
             <Route path="/order/:canteen" element={<OrderPage />} />
             
