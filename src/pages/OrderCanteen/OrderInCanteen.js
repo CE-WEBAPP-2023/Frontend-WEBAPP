@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import React, { useEffect, useState } from 'react';
-
-
+import { APIURL } from '../../config';
+import axios from 'axios';
 import OrderCard from '../../components/OrderInCanteen_Pickup/OrderCard';
 import '../../components/OrderInCanteen_Pickup/OrderInCanteen.css'
 
@@ -14,21 +14,20 @@ function OrderInCanteen() {
 
     
 
-    fetch('http://localhost:2580/api/Order/all')
-      .then(response => response.json())
-      
-      .then(data => { 
-        console.log(data)
-        
-        // setData(data.filter((can) => (can.canteen.canteenId === canid)))
-        setData(data);
-      })
-      .catch(error => console.error(error));
-  
-      setLoading(true);
-      setTimeout(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${APIURL}/Order/all`);
+        const responseData = response.data;
+        console.log(responseData);
+        setData(responseData);
         setLoading(false);
-      }, 2000);  }, []);
+      } catch (error) {
+        console.error(error);
+        setLoading(true);
+      }
+    };
+
+    fetchData(); }, []);
   
       return (
     <div className="OrderInCanteen">

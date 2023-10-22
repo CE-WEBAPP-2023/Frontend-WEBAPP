@@ -1,7 +1,8 @@
 import React, {  useEffect, useState } from 'react';
 
+import { APIURL } from '../../config';
 
-
+import axios from 'axios';
 
 import Order_Pickup from '../../components/OrderInCanteen_Pickup/Order_Pickup';
 
@@ -15,21 +16,23 @@ function Pickupall() {
     // const canid = 1;
     useEffect(() => {
 
-      fetch('http://localhost:2580/api/Order/grabbed')
-        .then(response => response.json())
-        
-        .then(data => { 
-          console.log(data)
-          
-          // setData(data.filter((can) => (can.canteen.canteenId === canid)))
-          setData(data);
-        })
-        .catch(error => console.error(error));
-   
-        setLoading(true);
-        setTimeout(() => {
+    
+
+      const fetchData = async () => {
+        try {
+          const response = await axios.get(`${APIURL}/Order/grabbed`);
+          const responseData = response.data;
+          console.log(responseData);
+          setData(responseData);
           setLoading(false);
-        },2000); }, []);
+        } catch (error) {
+          console.error(error);
+          setLoading(true);
+        }
+      };
+  
+      fetchData(); }, []);
+    
     
     return (
       <div className="OrderInCanteen">
