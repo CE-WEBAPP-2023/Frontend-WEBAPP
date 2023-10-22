@@ -124,25 +124,21 @@
    grid-gap: 0px 0px;
 }
 
-.Order-card-order-detail {
-    /* background: #456678; */
+/* .Order-card-order-detail {
+    background: #456678;
 
   
    
-}
+} */
 
 .btn-on-off-menu {
     /* background: #987655; */
 
     display:  flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: flex-end;
     padding-right: 10px;
     margin-bottom: 20px;
-   
-
-    
-
 }
 .btn-on-off-menu button {
     width: 50px;
@@ -247,9 +243,9 @@
     padding-bottom: 2px;    
     
 }
-.Order-card-menudetail-detail {
+/* .Order-card-menudetail-detail {
     
-}
+} */
 
 .Order-card-menudetail-detail-menu-section-name {
     /* background: blue; */
