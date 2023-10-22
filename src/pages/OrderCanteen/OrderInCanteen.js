@@ -19,6 +19,7 @@ function OrderInCanteen() {
         const response = await axios.get(`${APIURL}/Order/all`);
         const responseData = response.data;
         console.log(responseData);
+        // setData(data.filter((can) => (can.canteen.canteenId === canid)))
         setData(responseData);
         setLoading(false);
       } catch (error) {
