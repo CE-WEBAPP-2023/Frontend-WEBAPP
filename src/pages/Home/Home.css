@@ -158,8 +158,8 @@
 
 @media (min-width: 1440px) and (min-height: 900px){
     .homepage h1 {
-        font-size: 102px;
-        margin-top: 220px;
+        font-size: 85px;
+        margin-top: 1vh;
         margin-bottom: 40px;
     }
     .homepage h2 {
