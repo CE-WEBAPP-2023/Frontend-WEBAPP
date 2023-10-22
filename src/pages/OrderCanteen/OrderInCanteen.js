@@ -4,12 +4,15 @@ import { APIURL } from '../../config';
 import axios from 'axios';
 import OrderCard from '../../components/OrderInCanteen_Pickup/OrderCard';
 import '../../components/OrderInCanteen_Pickup/OrderInCanteen.css'
-
+import { useParams } from 'react-router-dom'; 
 
 function OrderInCanteen() {
   const [data, setData] = useState([]);
   const [loading,setLoading] = useState(false);
-  // const canid = 1;
+  const canteenName = ["A","J","C","พระเทพ"]
+  const { canId } = useParams();
+  const Cid = parseInt(canId);
+  // const canId = 1;
   useEffect(() => {
 
     
@@ -19,7 +22,8 @@ function OrderInCanteen() {
         const response = await axios.get(`${APIURL}/Order/all`);
         const responseData = response.data;
         console.log(responseData);
-        setData(responseData);
+        setData(responseData.filter((can) => (can.canteen.canteenId === Cid)))
+        console.log(data);
         setLoading(false);
       } catch (error) {
         console.error(error);
@@ -27,14 +31,15 @@ function OrderInCanteen() {
       }
     };
 
-    fetchData(); }, []);
+    fetchData(); 
+  }, []);
   
       return (
     <div className="OrderInCanteen">
 
      {loading ? ( <div className='loadingpage'> <div className='loader'></div> </div> ) : ( 
      <div className='bigBoy'>
-      <div className='OrderInCanteen-header'> โรงอาหาร </div>
+      <div className='OrderInCanteen-header'> โรงอาหาร {canteenName[Cid-1]} </div>
         
         <div className='OrderALL'>
          
