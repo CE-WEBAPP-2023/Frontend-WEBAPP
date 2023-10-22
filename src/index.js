@@ -8,9 +8,9 @@ import Home from './pages/Home/Home';
 import About from './pages/AboutUs/About';
 import PageNotFound from './pages/404/PageNotFound';
 import OrderPage from './pages/OrderPage/OrderPage';
-import OrderInCanteen from './components/OrderInCanteen/OrderInCanteen';
+import OrderInCanteen from './pages/OrderCanteen/OrderInCanteen';
 
-import Pickupall from './components/PickupAll/Pickupall';
+import Pickupall from './pages/Pickup/Pickupall';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
