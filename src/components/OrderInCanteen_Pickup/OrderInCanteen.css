@@ -67,7 +67,7 @@
 
 .Order-card-order {
     background: #FFBF41;
-    height: 150px;
+    height: 170px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom: 2px solid rgba(158, 130, 115, 0.5);
@@ -117,7 +117,7 @@
 }
 
 
-.header-order {
+.order {
    color: #502215;
    display: grid;
    grid-template-columns: 1fr 1fr;
@@ -291,6 +291,36 @@
     
 }
 
+.btn-order-status-grid {
+    display: grid;
+    grid-template-columns: 50px 1fr ;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #502215;
+    
+    
+
+}
+
+.btn-order-status-grid .material-symbols-outlined{
+    font-size: 45px;
+   
+    border-radius: 50%;
+    
+    
+    
+
+
+}
+
+.btn-order-status-grid a{
+   text-align: start;
+   padding-top: 5px;
+    
+
+    
+}
+
 
 .btn-order-agree {
     /* background:#502215; */
@@ -350,6 +380,8 @@ font-size: 16px;
     background-color: #96BB7C;
 }
 
+
+
 .btn-order-status-accept.red {
     background-color: #fd2f14;
 }
@@ -361,6 +393,15 @@ font-size: 16px;
 .btn-order-accept.orange {
     background: #FF8731;
 }
+
+.btn-order-accept.pink {
+    background-color: #FF8080;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    padding-top: 6px;
+}
+
 
 .btn-order-accept {
 
@@ -444,11 +485,31 @@ font-size: 16px;
     /* z-index: 0; */
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content:space-between;
+    margin-left: 15px;
     font-size: 20px;
     color: #502215;
   }
   
+  .material-symbols-outlined.OrderInCanteen-header-arrow{
+
+    
+    margin: 20px;
+    padding-top: 10px;
+    padding-bottom: 4px;
+    padding-left: 13px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #502215;
+    height: 30px;
+    width: 30px;
+  }
+
+  .material-symbols-outlined.OrderInCanteen-header-arrow:hover{
+
+    box-shadow: 0px 0px 5px 5px rgba(255, 249, 249, 0.1);   
+    background-color: #c1c0bc; 
+  }
 
   .Order-card-order-detail a 
   {
@@ -460,7 +521,7 @@ font-size: 16px;
 
   .Order-card-order-detail h3 {
 
-    margin-top: 10px;
+    padding-top: 10px;
   }
 
   .Order-card-order-detail-detail {
@@ -636,4 +697,23 @@ font-size: 16px;
         height: 200px;
         width: 200px;
     }
+}
+
+
+
+
+.Order-card-order-rider {
+    background: #ffffff;
+   
+    height: 150px;
+    border-radius: 20px;
+    border-bottom: 2px solid rgba(158, 130, 115, 0.5);
+    
+   /* shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-bottom: 15px;
+
+    text-align: start;
+
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { APIURL } from '../../config';
 import OrderCard from '../../components/OrderInCanteen_Pickup/OrderCard';
 import '../../components/OrderInCanteen_Pickup/OrderInCanteen.css'
-import { useParams } from 'react-router-dom';
+import { useParams ,Link } from 'react-router-dom';
 import serverError from '../500/ServerError';
 
 function OrderInCanteen() {
@@ -44,7 +44,16 @@ function OrderInCanteen() {
 
       {loading ? ( <div className='loadingpage'> <div className='loader'></div> </div> ) : ( 
       <div className='bigBoy'>
-        <div className='OrderInCanteen-header'> โรงอาหาร {canteenNames[Cid-1]} </div>
+        <div className='OrderInCanteen-header'>
+        <Link to ='/'> 
+        
+          <span className="material-symbols-outlined OrderInCanteen-header-arrow">
+            arrow_back_ios
+          </span>
+        </Link>
+        <div className='OrderInCanteen-header-text'> {canteenNames[Cid-1]} </div> 
+        <div className=''></div>
+      </div> 
         <div className='OrderALL'>
           {data.map((order, index) => (
             <OrderCard 
