@@ -89,19 +89,19 @@ function OrderPage() {
                         <div className='personinputbox'>
                             <div className='input-field'>
                                 <label>ชื่อ</label>
-                                <input onChange={(e)=>handleSetForm("fname",e)} value={fname} type="text" placeholder="fname" />
+                                <input onChange={(e)=>handleSetForm("fname",e)} value={fname} type="text" placeholder="นายซานพล" />
                             </div>
                             <div className='input-field'>
                                 <label>นามสกุล</label>
-                                <input onChange={(e)=>handleSetForm("lname",e)} value={lname} type="text" placeholder="lname" />
+                                <input onChange={(e)=>handleSetForm("lname",e)} value={lname} type="text" placeholder="คนสงขลา" />
                             </div>
                             <div className='input-field'>
                                 <label>เบอร์โทร</label>
-                                <input onChange={(e)=>handleSetForm("tel",e)} value={tel} type="text" placeholder="tel" />
+                                <input onChange={(e)=>handleSetForm("tel",e)} value={tel} type="text" placeholder="09XXXXXXXX" />
                             </div>
                             <div className='input-field'>
                                 <label>ที่อยู่</label>
-                                <input onChange={(e)=>handleSetForm("address",e)} value={address} type="text" placeholder="address" />
+                                <input onChange={(e)=>handleSetForm("address",e)} value={address} type="text" placeholder="ตึก ECC มหัศจรรย์" />
                             </div>
                         </div>
                     </div>
