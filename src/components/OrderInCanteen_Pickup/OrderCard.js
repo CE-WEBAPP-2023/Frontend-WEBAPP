@@ -1,62 +1,33 @@
 import React, { Component, useEffect, useState } from 'react';
 
-import '../OrderInCanteen/OrderInCanteen.css';
+import './OrderInCanteen.css';
+import Menu_loop from './Menu';
+import Popupselect from './PopupSelect';
 
 
 
 
-
-function Pickupall() {
-    const [data, setData] = useState([]);
-    const [loading,setLoading] = useState(false);
-    // const canid = 1;
-    useEffect(() => {
-
-      fetch('http://localhost:2580/api/Order/all')
-        .then(response => response.json())
-        
-        .then(data => { 
-          console.log(data)
-          
-          // setData(data.filter((can) => (can.canteen.canteenId === canid)))
-          setData(data);
-        })
-        .catch(error => console.error(error));
-   
-        setLoading(true);
-        setTimeout(() => {
-          setLoading(false);
-        },2000); }, []);
-    
-    return (
-      <div className="OrderInCanteen">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        {loading ? ( <div className='loadingpage'> <div className='loader'></div> </div> ) : ( <div> 
-          <div className='OrderInCanteen-header'> การรับหิ้วของโรงอาหาร  </div>
-            <div className='OrderALL'>
-            {data.map((received, index) => (
-        
-        <Order_Pickup key={index} fname={received.user.name}lname={received.user.lastName} phonetel={received.user.phoneNumber} userlocation={received.userLocation} food={received.food} ridername={received.raider.name} ridertel={received.raider.phoneNumber}/>
-          
-     
-    ))}
-            
-            </div>
-            </div> )} 
-    
-      </div>
-    );
-  }
-
-  class Order_Pickup extends Component {
+class OrderCard extends Component {
+  
     constructor(props) {
         super(props);
         this.state = {
           isListShown: true,
             showMenuDetail: false,
+            isPopupOpen: false,   
             
         };
       }
+
+      openPopup = () => {
+        this.setState({ isPopupOpen: true });
+      }
+    
+      // ปิด Popup
+      closePopup = () => {
+        this.setState({ isPopupOpen: false });
+      }
+    
     
 
       
@@ -64,23 +35,27 @@ function Pickupall() {
     this.setState((prevState) => ({
       isListShown: !prevState.isListShown,
         showMenuDetail: !prevState.showMenuDetail,
+        
        
     }));
   };
 
     render() {
          const { isListShown } = this.state;
-         const {fname, lname, phonetel, userlocation ,food ,orderid ,ridername,ridertel} = this.props;
+         const {fname, lname, phonetel, userlocation ,food ,orderid} = this.props;
         return (
+        
             <div className="Order">
+             
+               
                 <div className='Order-card'>
 
-                <div className='Order-card-order'>
+                    <div className='Order-card-order'>
                         
                         <div className='header-order'>
                             
                             <div className='Order-card-order-detail'>
-                            <h3>Order</h3>
+                            <h3>Order </h3>
                             <div className='Order-card-order-detail-detail'>
 
                             <div className='grid-order-detail'>
@@ -137,9 +112,12 @@ function Pickupall() {
                         <h4>เมนู</h4>
                         <div className='Order-card-menudetail-detail-menu'>
                             <div className='Order-card-menudetail-detail-menu-overflow'>
-                            {food.map((food, index) => (
+                           
+                           
+                                {food.map((food, index) => (
                                     <Menu_loop key={index} foodname={food.name} foodquatiy={food.quantity} />
                                 ))}
+                               
                             </div>
                         
                         </div>
@@ -147,18 +125,21 @@ function Pickupall() {
                         </div>
                     </div>
                     <div className='Order-card-btn'>
-                        <div className='btn-order-grid'>
+                      
+                        <div className='btn-order-grid' style={{ paddingLeft: '10px'  , paddingTop:'10px'}}>
                             <div className='btn-order-status'>
                                 <a>สถานะ:</a> <br />
-                                <button className='btn-order-status-accept blue'>หิ้วแล้ว</button>
-                            </div>
-                            <div className='btn-order-agree pick'>
-                                <a>รายละเอียดผู้รับหิ้ว</a>
-                                <p>ชื่อ: {ridername}
-                                <br />
-                                เบอร์โทร: {ridertel}
-                                </p> <br />
+                                <button className='btn-order-status-accept green'  >หิ้วได้น้า</button>
                                 
+                            </div>
+                            <div className='btn-order-agree'>
+                            <button className='btn-order-accept orange 'onClick={this.openPopup}  ><a>รับงาน</a></button>
+                            {this.state.isPopupOpen && (
+          <div>
+            <div className='pop-up-overlay'></div>
+            <Popupselect onClose={this.closePopup} fname={fname} lname={lname} phonetel={phonetel} userlocation={userlocation} food={food} orderid={orderid}   />
+          </div>
+        )}
                             </div>
                                 
                         </div>
@@ -170,17 +151,4 @@ function Pickupall() {
     }
 }
 
-class Menu_loop extends Component {
-    render() {
-        const {foodname, foodquatiy} = this.props;
-        return (
-            <div className='Order-card-menudetail-detail-menu-section'>
-                 <div className='Order-card-menudetail-detail-menu-section-count'><a>{foodquatiy}</a></div>
-                <div className='Order-card-menudetail-detail-menu-section-name'>{foodname}</div>
-               
-            </div>  
-        );
-
-        }
-}
-  export default Pickupall;
+export default OrderCard;
