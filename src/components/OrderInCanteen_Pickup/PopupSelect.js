@@ -2,6 +2,8 @@ import React, { Component, useEffect, useState } from 'react';
 
 import './OrderInCanteen.css';
 import Menu_loop from './Menu';
+import { APIURL } from '../../config';
+import axios  from 'axios';
 
 
 class Popupselect extends Component {
@@ -55,7 +57,7 @@ class Popupselect extends Component {
       if (formErrors.name === '' && formErrors.phoneNumber === '') {
         // ส่งข้อมูล HTTP PUT request ไปยังเซิร์ฟเวอร์
         
-        const url = `http://localhost:2580/api/Order/grab/${this.props.orderid}`;
+        const url = `${APIURL}/Order/grab/${this.props.orderid}`;
         
         const data = {
           name: this.state.name,
@@ -63,25 +65,22 @@ class Popupselect extends Component {
           phoneNumber: this.state.phoneNumber,
         };
   
-        fetch(url, {
-          method: 'PUT',
+        
+        axios.put(url, data, {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(data),
         })
-          .then((response) => {response.text()
-            console.log(response)
-          }
-          )
-          .then((result) => {
-            console.log('ส่งข้อมูลสำเร็จ', result);
-            this.handleClose();
-            // ทำอะไรสักอย่างหลังจากส่งข้อมูลสำเร็จ
-          })
-          .catch((error) => {
-            console.error('เกิดข้อผิดพลาดในการส่งข้อมูล:', error);
-          });
+        .then((response) => {
+          console.log(response);
+          console.log('ส่งข้อมูลสำเร็จ', response.data);
+          this.handleClose();
+          // ทำอะไรสักอย่างหลังจากส่งข้อมูลสำเร็จ
+        })
+        .catch((error) => {
+          console.error('เกิดข้อผิดพลาดในการส่งข้อมูล:', error);
+        });
+  
       }
     }
   
