@@ -27,7 +27,7 @@ root.render(
             <Route path="/order/:canId" element={<OrderPage />} />
             <Route path="/order/:canteen" element={<OrderPage />} />
             <Route path="/Pickuppage" element={<Pickuppage />} />
-            <Route path="/order/:canId" element={<OrderPage />} />
+            
           </Routes>
         </div>
     }/>
