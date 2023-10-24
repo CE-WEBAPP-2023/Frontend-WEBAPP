@@ -11,11 +11,6 @@ const SelectLocation = () => {
 
   const positions = [
     {
-      name : 'โรงพระเทพ',
-      y : 22,
-      x : 57.3,
-    },
-    {
         name : 'โรง A',
         y : 62.5,
         x : 52.7,
@@ -29,6 +24,11 @@ const SelectLocation = () => {
       name : 'โรง C',
       y : 62.5,
       x : 12.54,
+    },
+    {
+      name : 'โรงพระเทพ',
+      y : 22,
+      x : 57.3,
     },
   ]
 
@@ -97,9 +97,9 @@ const SelectLocation = () => {
       }, 1000);
     }else{
       if (userMode === 0){
-        navigate(`/order/${isShow}`);
+        navigate(`/order/${isShow+1}`);
       }else{
-        navigate(`/orderInCanteen/${isShow}`);
+        navigate(`/orderInCanteen/${isShow+1}`);
       }
     }
   };
