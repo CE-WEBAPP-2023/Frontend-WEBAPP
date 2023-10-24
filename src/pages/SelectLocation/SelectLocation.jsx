@@ -10,7 +10,6 @@ import axios from "axios"
 const SelectLocation = () => {
 
   const positions = [
- 
     {
         name : 'โรง A',
         y : 62.5,
