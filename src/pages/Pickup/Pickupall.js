@@ -60,7 +60,7 @@ function Pickupall() {
                       alt='loading GIF' 
                       className='loading' />) : ( <div className='bigBoy'> 
         <div className='OrderInCanteen-header'>
-        <Link to ='/'> 
+        <Link to ='/Pickuppage'> 
           <span className="material-symbols-outlined OrderInCanteen-header-arrow">
             arrow_back_ios
           </span>
