@@ -1,4 +1,5 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component, useState } from 'react';
+
 
 import './OrderInCanteen.css';
 import Menu_loop from './Menu';
@@ -7,7 +8,8 @@ import axios  from 'axios';
 
 
 class Popupselect extends Component {
-
+    
+    
     handleClose = () => {
       this.props.onClose(); // ส่งคำสั่งไปยัง YourComponent เพื่อปิด Popup
     }
@@ -19,6 +21,7 @@ class Popupselect extends Component {
         
         isListShown: true,
           showMenuDetail: false,
+          
   
           name: '',
           phoneNumber: '',
@@ -34,8 +37,10 @@ class Popupselect extends Component {
     }
     handleInputChange = (event) => {
       const { name, value } = event.target;
+      
       this.setState({ [name]: value });
     }
+    
     handleClick = () => {
       // ตรวจสอบค่าว่างในชื่อผู้รับหิ้วและเบอร์โทรติดต่อ
       let formErrors = { ...this.state.formErrors };
@@ -74,7 +79,16 @@ class Popupselect extends Component {
         .then((response) => {
           console.log(response);
           console.log('ส่งข้อมูลสำเร็จ', response.data);
+         
+          
+           
+          
           this.handleClose();
+           
+          alert('รับหิ้วแล้ว');
+          window.location.reload();
+
+
           // ทำอะไรสักอย่างหลังจากส่งข้อมูลสำเร็จ
         })
         .catch((error) => {
@@ -95,8 +109,11 @@ class Popupselect extends Component {
   };
   
     render() {
+      
+
       const { isListShown } = this.state;
       const {fname, lname, phonetel, userlocation ,food } = this.props;
+      
       const nameErrorClass = this.state.formErrors.name ? 'error-border' : '';
       const phoneNumberErrorClass = this.state.formErrors.phoneNumber ? 'error-border' : '';
       return (
@@ -112,21 +129,21 @@ class Popupselect extends Component {
                     <div className='Order-card-order-detail-detail'>
   
                     <div className='grid-order-detail'>
-                    <span class="material-symbols-outlined">
+                    <span className="material-symbols-outlined">
                         account_circle  
                     </span> 
                     <a> {fname} {lname}</a>
                     </div>
   
                     <div className='grid-order-detail'>
-                    <span class="material-symbols-outlined">
+                    <span className="material-symbols-outlined">
                         call 
                     </span> 
                     <a>{phonetel}</a>
                     </div>
   
                     <div className='grid-order-detail'>
-                    <span class="material-symbols-outlined">
+                    <span className="material-symbols-outlined">
                         near_me  
                     </span> 
                     <a>{userlocation}</a>
@@ -192,8 +209,10 @@ class Popupselect extends Component {
                           onChange={this.handleInputChange}
                     />  
                     <br />
+                    <div className='input-gap'>
                     <a>เบอร์โทรติดต่อ</a>
                     <br />
+                    
                       <input
                         className={`form-input-detail ${phoneNumberErrorClass}`}
                         type="text"
@@ -203,6 +222,7 @@ class Popupselect extends Component {
                         onChange={this.handleInputChange}
                       /> 
                       
+                  </div>
   
                    </div>
   
@@ -236,6 +256,7 @@ class Popupselect extends Component {
             </div>
   
         </div>
+   
     </div>
       );
   

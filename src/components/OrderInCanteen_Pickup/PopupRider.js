@@ -42,7 +42,7 @@ class PopupRider extends Component {
       const {riderName,riderTel } = this.props;
      
       return (
-    <div className="Order-pop">
+    <div className="Order-pop" onClick={this.handleClose}>
         <div className='Order-card'>
         <div className='Order-card-order-rider' onClick={this.handleClose}>
                 
