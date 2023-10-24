@@ -203,7 +203,7 @@ const SelectDest = (props) => {
         setNotValid(false);
       }, 1000);
     }else{
-      props.onDestinationSelected(`name:${positions[selectedDest].name} description:${description}`);
+      props.onDestinationSelected(`${positions[selectedDest].name} ${description}`);
       props.isPop();
     }
   };

@@ -1,12 +1,18 @@
 import './OrderPage.css';
 import '../../components/OrderPage/InputField';
 import React, { useState } from "react";
+import { useNavigate, useParams } from 'react-router-dom';
 import { APIURL } from '../../config';
 import axios from "axios"
 import SelectDest from '../../components/selectDest/SelectDest';
 import mapButton from '../../images/map.png';
 import orderButton from '../../images/order-now.png';
+import loadingGif from '../../images/loading.gif';
+
 function OrderPage() {
+    const navigate = useNavigate();
+    const { canId } = useParams();
+    const Cid = parseInt(canId);
     const [count, setCount] = useState(1);
     const [menuName, setMenuName] = useState(''); // State to store the menu name
     const [orders, setOrders] = useState([]);
@@ -74,28 +80,40 @@ function OrderPage() {
         setOrders(updatedOrders);
     }
 
+    const [orderComplete, setOrderComplete] = useState(false);
+    const canteenNames = ["โรง A","โรง J","โรง C","โรงพระเทพ"]
     function handleSubmit() {
-        console.log("hello chatree")
-        console.log(JSON.stringify(formValue,null,2))
-        console.log(orders)
-        console.log(`${APIURL}/Order/post`);
-        axios.post(`${APIURL}/Order/post`,{
-            user: {
-                name: fname,
-                lastName: lname,
-                phoneNumber: tel
-            },
-            userLocation: address,
-            canteen: {
-                canteenId: 4,
-                canteenName: "โรง c"
-            },
-            food: orders
-        }).then((respose)=>{
-            console.log(respose)
-        }).catch((err)=>{
-            console.log(err)
-        })
+        const isFormValid = Object.values(formValue).every(value => value !== '');
+        if (isFormValid) {
+            console.log("hello chatree")
+            console.log(JSON.stringify(formValue,null,2))
+            console.log(orders)
+            console.log(`${APIURL}/Order/post`);
+            axios.post(`${APIURL}/Order/post`,{
+                user: {
+                    name: fname,
+                    lastName: lname,
+                    phoneNumber: tel
+                },
+                userLocation: address,
+                canteen: {
+                    canteenId: Cid,
+                    canteenName: canteenNames[Cid-1]
+                },
+                food: orders
+            }).then((respose)=>{
+                console.log(respose)
+                setOrderComplete(true)
+                setInterval(()=>{
+                    navigate(`/pickupall/${Cid}`)
+                    setOrderComplete(true) 
+                },1500)
+            }).catch((err)=>{
+                console.log(err)
+            })
+        } else{
+            alert('โปรดกรอกข้อมูลให้ครบถ้วน');
+        }
     }
     const togglePopUp = () => {
         setPopLocation(!popLocation);
@@ -106,15 +124,17 @@ function OrderPage() {
 
     const [isHoveredOrder, setIsHoveredOrder] = useState(false);
     const [isHoveredMap, setIsHoveredMap] = useState(false);
-
     const checkHover = (state) => {
         if (window.innerWidth > 900){
             setIsHoveredMap(state);
         }
     }
+
+    const getBack = () => {navigate(`/select`)}
+
     return (
-        <div className="orderpage" style={{transform: `${slideScreen ? 'translateX(-50%)' : 'translateX(0%)'}`, transition: 'transform 0.5s'}}>
-            {/* <img src={eating} alt='eatingGIF' className='bg-eating'/> */}
+        ( !orderComplete ? 
+        (<div className="orderpage" style={{transform: `${slideScreen ? 'translateX(-50%)' : 'translateX(0%)'}`, transition: 'transform 0.5s'}}>
             <div className='box'>
                 <div className='inputbox'>
                     <h1>กรอกข้อมูลส่วนตัว</h1>
@@ -143,8 +163,8 @@ function OrderPage() {
                                     onClick={toggleSlide}
                                 />
                             )}
-                            <div className='slide-text slide-text-order'>สั่งอาหารกันน</div>
-                            <div className='slide-text slide-text-map' onClick={togglePopUp}>เลือกที่อยู่กันน</div>
+                            <div className='slide-text slide-text-order'>Let's Order</div>
+                            <div className='slide-text slide-text-map' onClick={togglePopUp}>Where r u?</div>
                             <img src={mapButton} alt='map button' className='mapButt'
                                 onMouseEnter={() => setIsHoveredMap(true)}
                                 onMouseLeave={() => setIsHoveredMap(false)}
@@ -153,7 +173,10 @@ function OrderPage() {
                         </div>
                     </div>
                 </div>
-                <button className='submit' onClick={handleSubmit}>ถัดไป</button>
+                <div className='buttonContainer'>
+                    <button className='submit' onClick={handleSubmit}>ถัดไป</button>
+                    <button className='submit cancel' onClick={getBack}>ยกเลิก</button>
+                </div>
             </div>
             <div className='menu-box'>
                 <h2>
@@ -203,7 +226,10 @@ function OrderPage() {
                     <SelectDest isPop={togglePopUp} onDestinationSelected={handleSelectedDestination}/>
                 )
             }
-        </div>
+        </div>) : <img src={loadingGif} 
+                      alt='loading GIF'
+                      className='loading' />)
+        
     );
 }
 

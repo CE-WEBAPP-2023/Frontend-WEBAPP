@@ -25,6 +25,7 @@ root.render(
             <Route path="OrderInCanteen/:canId" element={<OrderInCanteen />} />
             <Route path="Pickupall/:canId" element={<Pickupall />} />
             <Route path="/select" element={<SelectLocation/>} />
+            <Route path="/order/:canId" element={<OrderPage />} />
             <Route path="/order/:canteen" element={<OrderPage />} />
             <Route path="/Pickuppage" element={<Pickuppage />} />
           </Routes>

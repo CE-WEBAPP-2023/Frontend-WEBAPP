@@ -5,8 +5,10 @@
 
 .OrderInCanteen {
     height: 100%;
+    width: 100%;
     margin-bottom: 3rem;
     gap: 0;
+    position: relative;
     
 }
 .OrderALL {
@@ -20,6 +22,15 @@
     overflow-y: scroll;
     display: grid;
     grid-template-columns: repeat(autofit, minmax(300px,1fr));
+}
+.loading{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    height: auto;
+    min-width: 280px;
+    transform: translate(-50%, -50%);
 }
 .bigBoy{
     height: 100%;
@@ -115,7 +126,6 @@
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
-
 
 /* .order {
    color: #502215;
@@ -677,8 +687,6 @@ font-size: 16px;
     padding-left: 0px;
     
   }
-
-
  
   .loadingpage{
     height: 100vh;
