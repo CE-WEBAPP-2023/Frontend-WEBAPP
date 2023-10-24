@@ -66,14 +66,14 @@ class OrderCard extends Component {
                             </div>
 
                             <div className='grid-order-detail'>
-                            <span class="material-symbols-outlined">
+                            <span className="material-symbols-outlined">
                                 call 
                             </span> 
                             <a>{phonetel}</a>
                             </div>
 
                             <div className='grid-order-detail'>
-                            <span class="material-symbols-outlined">
+                            <span className="material-symbols-outlined">
                                 near_me  
                             </span> 
                             <a>{userlocation}</a>
