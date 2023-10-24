@@ -63,7 +63,7 @@ function Pickupall() {
             arrow_back_ios
           </span>
         </Link>
-        <div className='OrderInCanteen-header-text'>การรับหิ้วของโรงอาหาร {canteenNames[Cid-1]}</div> 
+        <div className='OrderInCanteen-header-text'>การรับหิ้วของ {canteenNames[Cid-1]}</div> 
         <div className=''></div>
       </div> 
             <div className='OrderALL'>

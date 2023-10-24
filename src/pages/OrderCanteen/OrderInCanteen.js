@@ -19,7 +19,7 @@ function OrderInCanteen() {
         const names = canteenData.map((can) => can.canteenName);
 
         if (names && names.length > 0 && names[Cid-1] !== undefined) {
-          const orderResponse = await fetch(`${APIURL}/Order/all`);
+          const orderResponse = await fetch(`${APIURL}/Order`);
           const orderData = await orderResponse.json();
 
           const filteredData = orderData.filter((order) => order.canteen.canteenId === Cid);

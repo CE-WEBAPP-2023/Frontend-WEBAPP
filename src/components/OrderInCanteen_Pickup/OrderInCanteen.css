@@ -117,12 +117,12 @@
 }
 
 
-.order {
+/* .order {
    color: #502215;
    display: grid;
    grid-template-columns: 1fr 1fr;
    grid-gap: 0px 0px;
-}
+} */
 
 /* .Order-card-order-detail {
     background: #456678;
@@ -239,7 +239,7 @@
     border-radius: 10px;
     padding-left: 10px; 
     padding-right: 10px;
-    padding-top: 5px;
+    
     padding-bottom: 2px;    
     
 }
@@ -392,7 +392,16 @@ font-size: 16px;
 
 .btn-order-accept.orange {
     background: #FF8731;
+    margin-right: 10px;
+    height: 65px;
+    width: 120px;  
 }
+
+.btn-order-accept.orange:hover {
+    background: #eb7e30;
+
+}
+
 
 .btn-order-accept.pink {
     background-color: #FF8080;
@@ -628,6 +637,7 @@ font-size: 16px;
 
     .Order-card-menudetail.hidden{
         max-height: 400px;
+        text-align: center;
     }
 
     .btn-on-off-menu {
@@ -717,3 +727,24 @@ font-size: 16px;
     text-align: start;
 
 }
+
+.grid-order-detail .material-symbols-outlined {
+    font-size: 37px;
+}
+
+.input-gap {
+    margin-top: 6px;
+}
+
+
+.Popup-correct {
+    z-index: 2;
+    height: 200px;
+    width: 200px;
+    top: 50%;
+    left: 50%;
+    background-color: #ffffff;
+}
+
+
+/* CSS สำหรับโต๊ะหรือป็อปอัพ */
