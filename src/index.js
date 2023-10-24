@@ -25,7 +25,6 @@ root.render(
             <Route path="Pickupall/:canId" element={<Pickupall />} />
             <Route path="/select" element={<SelectLocation/>} />
             <Route path="/order/:canteen" element={<OrderPage />} />
-            
           </Routes>
         </div>
     }/>

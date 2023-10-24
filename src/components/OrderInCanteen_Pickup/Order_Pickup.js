@@ -1,5 +1,7 @@
 import React, { Component, useEffect, useState } from 'react';
 import Menu_loop from './Menu';
+import PopupRider from './PopupRider';
+import './OrderInCanteen.css';
 
 class Order_Pickup extends Component {
     constructor(props) {
@@ -7,11 +9,22 @@ class Order_Pickup extends Component {
         this.state = {
           isListShown: true,
             showMenuDetail: false,
+            isPopupOpen: false, 
             
         };
       }
     
 
+      openPopup = () => {
+        this.setState({ isPopupOpen: true });
+      }
+    
+      // ปิด Popup
+      closePopup = () => {
+        this.setState({ isPopupOpen: false });
+      }
+    
+    
       
   toggleMenuDetail = () => {
     this.setState((prevState) => ({
@@ -100,18 +113,29 @@ class Order_Pickup extends Component {
                         </div>
                     </div>
                     <div className='Order-card-btn'>
-                        <div className='btn-order-grid'>
+                    <div className='btn-order-grid'>
                             <div className='btn-order-status'>
                                 <a>สถานะ:</a> <br />
                                 <button className='btn-order-status-accept blue'>หิ้วแล้ว</button>
                             </div>
-                            <div className='btn-order-agree pick'>
+                            {/* <div className='btn-order-agree pick'>
                                 <a>รายละเอียดผู้รับหิ้ว</a>
                                 <p>ชื่อ: {ridername}
                                 <br />
                                 เบอร์โทร: {ridertel}
                                 </p> <br />
                                 
+                            </div> */}
+                            <div className='btn-order-agree'>
+                            <button className='btn-order-accept pink 'onClick={this.openPopup}  ><a><span className="material-symbols-outlined" style={{fontSize:'40px',fontWeight:'bold'}}>
+sports_motorsports
+</span></a></button>
+                            {this.state.isPopupOpen && (
+          <div>
+            <div className='pop-up-overlay'></div>
+            <PopupRider onClose={this.closePopup} riderName={ridername} riderTel={ridertel} />
+          </div>
+        )}
                             </div>
                                 
                         </div>

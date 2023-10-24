@@ -59,7 +59,7 @@ class OrderCard extends Component {
                             <div className='Order-card-order-detail-detail'>
 
                             <div className='grid-order-detail'>
-                            <span class="material-symbols-outlined">
+                            <span className="material-symbols-outlined">
                                 account_circle  
                             </span> 
                             <a>{fname} {lname}</a>
