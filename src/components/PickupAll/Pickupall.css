@@ -346,3 +346,143 @@ font-size: 16px;
   }
  
   
+  .PickSelect {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 20px;
+  }
+  .PickOrder{
+    
+    display: grid; 
+
+    grid-template-rows: 1fr 1fr  ;
+    grid-template-columns: 1fr 1fr;
+    
+    gap: 20px;
+    height: 100%;
+    
+    
+  }
+
+  .canteen {
+    height:190px;
+    width: 190px;
+    background-color: #FFBF41;
+    border-radius: 25px;
+    padding: 30px;
+    text-align: center;
+    display: grid;
+    place-items: center; 
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #F8EDE3;
+    
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    
+  }
+
+
+  @media (min-width: 1024px) {
+    .PickSelect .PickOrder {
+       
+        display: grid; 
+    
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr ;
+        
+        gap: 20px;
+        height: 100%;
+        
+        
+        
+      }
+
+      .canteen {
+        height: 220px;
+        width: 220px;
+        background-color: #FFBF41;
+        border-radius: 25px;
+        padding: 30px;
+        text-align: center;
+
+        
+      }
+
+
+   
+  }
+
+  @media (max-width: 500px ) {
+   .PickSelect .PickOrder{
+        
+        display: grid; 
+    
+        grid-template-rows: 1fr  1fr;
+        grid-template-columns: 1fr 1fr;
+        
+        gap: 20px;
+        height: 100%;
+        
+      }
+
+      .canteen {
+        height: 100px;
+        width: 100px;
+        background-color: #FFBF41;
+        border-radius: 25px;
+        padding: 30px;
+        text-align: center;
+        
+      }
+
+      .canteen  .text-click {
+        font-size: 35px;
+        font-weight: bold;
+        color: #502215;
+      }
+   
+  }
+
+   
+
+  .text-header-canteen {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 30px;
+    color: #502215;
+  }
+
+
+  .canteen.A {  
+    background-color: #79E0EE;
+  }
+
+  .canteen.J{  
+    background-color: #98EECC;
+  }
+
+  .canteen.C {  
+    background-color: #D0F5BE;
+  }
+  .canteen.PT {  
+    background-color: #F5EA5A;
+  }
+
+  .text-click {
+    font-size: 70px;
+    font-weight: 700;
+    color: #502215;
+    
+  }
+
+  .canteen:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    
+  }

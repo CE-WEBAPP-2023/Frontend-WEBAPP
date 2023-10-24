@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { APIURL } from '../../config';
 import OrderCard from '../../components/OrderInCanteen_Pickup/OrderCard';
-import '../../components/OrderInCanteen_Pickup/OrderInCanteen.css'
+import '../../components/OrderInCanteen_Pickup/OrderInCanteen.css';
 import { useParams ,Link } from 'react-router-dom';
 import serverError from '../500/ServerError';
 
@@ -45,7 +45,7 @@ function OrderInCanteen() {
       {loading ? ( <div className='loadingpage'> <div className='loader'></div> </div> ) : ( 
       <div className='bigBoy'>
         <div className='OrderInCanteen-header'>
-        <Link to ='/'> 
+        <Link to ='/select'> 
           <span className="material-symbols-outlined OrderInCanteen-header-arrow">
             arrow_back_ios
           </span>

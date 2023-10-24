@@ -57,7 +57,7 @@ function Pickupall() {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         {loading ? ( <div className='loadingpage'> <div className='loader'></div> </div> ) : ( <div className='bigBoy'> 
         <div className='OrderInCanteen-header'>
-        <Link to ='/'> 
+        <Link to ='/Pickuppage'> 
         
           <span className="material-symbols-outlined OrderInCanteen-header-arrow">
             arrow_back_ios
