@@ -9,7 +9,7 @@ import About from './pages/AboutUs/About';
 import PageNotFound from './pages/404/PageNotFound';
 import OrderPage from './pages/OrderPage/OrderPage';
 import OrderInCanteen from './pages/OrderCanteen/OrderInCanteen';
-
+import SelectLocation from './pages/SelectLocation/SelectLocation';
 import Pickupall from './pages/Pickup/Pickupall';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -23,6 +23,7 @@ root.render(
             <Route path="*" element={<PageNotFound />} />
             <Route path="OrderInCanteen/:canId" element={<OrderInCanteen />} />
             <Route path="Pickupall/:canId" element={<Pickupall />} />
+            <Route path="/select" element={<SelectLocation/>} />
             <Route path="/order/:canteen" element={<OrderPage />} />
           </Routes>
         </div>

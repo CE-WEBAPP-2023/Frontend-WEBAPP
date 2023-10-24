@@ -18,7 +18,7 @@ function Home() {
             </div>
             <h1>BUSY?</h1>
             <h2>LET'S FIND <br /> SOMEONE WHO <br /> CAN DELIVER <br /> FOOD FOR YOU</h2>
-            <Link to='/'>
+            <Link to='/select'>
                 <button>LET'S GO</button>
             </Link>
         </div>

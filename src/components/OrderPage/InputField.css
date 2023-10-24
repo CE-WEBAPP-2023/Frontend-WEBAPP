@@ -11,7 +11,7 @@
 
 
     .input-field input {
-        background-color: #fbe3ca;
+        background-color: #ffffff;
         color: #502215;
         border-radius: 20px;
         height: 5px;
@@ -35,8 +35,6 @@
 
 
     .input-field input {
-        background-color: #fbe3ca;
-        color: #502215;
         border-radius: 20px;
         height: 5px;
         padding: 15px;
