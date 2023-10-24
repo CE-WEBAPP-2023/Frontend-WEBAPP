@@ -8,9 +8,15 @@ const NavBar = ({content}) => {
   const [isDateVisible, setIsDateVisible] = useState(true);
   const [isTimeVisible, setIsTimeVisible] = useState(true);
 
+  const linkStyle = {
+    textDecoration: 'none', // ลบเส้นใต้ลิงค์
+    color: 'blue', // เปลี่ยนสีข้อความลิงค์
+  };
+
   const toggleDateVisibility = () => {
     setIsDateVisible(!isDateVisible);
   };
+  
 
   const toggleTimeVisibility = () => {
     setIsTimeVisible(!isTimeVisible);
@@ -36,6 +42,13 @@ const NavBar = ({content}) => {
           </Link>
            <span style={{display: 'flex',flex: '1 1 auto'}}></span>
            <div className="icon-container">
+           
+            <Link to ='/Pickuppage'  className='Linkto'>
+              <p>
+                GRAB
+              </p>
+              </Link>
+
               <span className="material-symbols" onClick={toggleDateVisibility}>date_range</span>
               <p id="date-in" className={isDateVisible ? '' : 'out'} style={{overflow:'hidden'}}>
                 {currentTime.toLocaleDateString('th-TH')}

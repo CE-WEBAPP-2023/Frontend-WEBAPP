@@ -48,3 +48,23 @@ body {
         width: auto;
     }
 }
+
+.Linkto {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.Linkto p {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 20px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.Linkto p:hover {
+
+    transform: scale(1.1);
+
+}
