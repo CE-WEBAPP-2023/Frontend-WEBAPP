@@ -12,24 +12,24 @@ function Pickupall() {
         </div>
         <div className='PickSelect'>
             <div className='PickOrder'>
-            <Link to ='/Pickupall/1'> 
+            <Link to ='/Pickupall/1' className='Linkedit'> 
                 <div className='canteen A '>
                     <div className='text-click'>A</div>
                 </div>
             </Link>
-            <Link to ='/Pickupall/2'> 
+            <Link to ='/Pickupall/2' className='Linkedit'> 
                 <div className='canteen J '>
                     <div className='text-click'>J</div>
                 </div>
             </Link>
             
-            <Link to ='/Pickupall/3'> 
+            <Link to ='/Pickupall/3' className='Linkedit'> 
                 <div className='canteen C '>
                 <div className='text-click'>C</div>
                 </div>
             </Link>
 
-            <Link to ='/Pickupall/4'> 
+            <Link to ='/Pickupall/4' className='Linkedit'> 
 
                 <div className='canteen PT '>
                 <div className='text-click'>Phra Thep</div>

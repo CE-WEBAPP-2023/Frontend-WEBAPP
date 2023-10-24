@@ -484,6 +484,8 @@ font-size: 16px;
     font-size: 70px;
     font-weight: 700;
     color: #502215;
+    transition: 0.3s;
+    cursor: pointer;
     
   }
 
@@ -491,3 +493,17 @@ font-size: 16px;
     background-color: rgba(0, 0, 0, 0.1);
     
   }
+
+  .Linkedit {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+  }
+
+
+
+.text-click:hover {
+
+    transform: scale(1.4);
+
+}
