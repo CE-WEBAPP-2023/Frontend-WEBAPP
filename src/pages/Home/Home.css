@@ -34,7 +34,7 @@
     position: absolute;
     z-index: 1;
     transform: rotate(40deg);
-    bottom: 85.5vh;
+    top: -6vh;
     left: 94vw;
     width: 20vh;
     height: auto;
@@ -160,97 +160,3 @@
         height: 11.5vw;
     }
 }
-/* @media (max-width: 393px) and (max-height: 852px){
-    .homepage h1 {
-        font-size: 56px;
-        margin-bottom: 40px;
-        margin-top: 40px;
-    }
-    .homepage h2 {
-        font-size: 1.5rem;
-        margin-bottom: 40px;
-    }
-    .homepage button {
-        border-radius: 30px;
-        padding: 10px 20px;
-        font-size: 1.2rem;
-        margin: 20px;
-    }
-    .top-left-image {
-        top: 18%;
-        right: 80%;
-        width: 30%;
-        height: auto;
-    }
-    .mid-left-image {
-        top: 50%;
-        right: 86%;
-        width: 20%;
-        height: auto;
-    }
-    .top-right-image {
-        bottom: 85%;
-        left: 85%;
-        width: 45%;
-        height: auto;
-    }
-    .mid-right-image {
-        top: 40%;
-        left: 86%;
-        width: 30%;
-        height: auto;
-    }
-    .bottom-right-image {
-        top: 66%;
-        left: 60%;
-        width: 55%;
-        height: auto;
-    }
-}
-@media (min-width: 1440px) and (min-height: 900px){
-    .homepage h1 {
-        font-size: 102px;
-        margin-top: 220px;
-        margin-bottom: 40px;
-    }
-    .homepage h2 {
-        font-size: 3rem;
-        margin-bottom: 40px;
-    }
-    .homepage button {
-        border-radius: 60px;
-        padding: 20px 40px;
-        font-size: 2.4rem;
-        margin: 40px;
-    }
-    .top-left-image {
-        top: 10%;
-        right: 90%;
-        width: 15%;
-        height: auto;
-    }
-    .mid-left-image {
-        top: 45%;
-        right: 90%;
-        width: 15%;
-        height: auto;
-    }
-    .top-right-image {
-        bottom: 81%;
-        left: 94%;
-        width: 15%;
-        height: auto;
-    }
-    .mid-right-image {
-        top: 30%;
-        left: 93%;
-        width: 15%;
-        height: auto;
-    }
-    .bottom-right-image {
-        top: 66%;
-        left: 88%;
-        width: 15%;
-        height: auto;
-    }
-} */

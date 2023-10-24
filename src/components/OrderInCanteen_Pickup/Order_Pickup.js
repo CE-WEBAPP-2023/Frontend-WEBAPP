@@ -1,63 +1,30 @@
-// import logo from './logo.svg';
 import React, { Component, useEffect, useState } from 'react';
-
+import Menu_loop from './Menu';
+import PopupRider from './PopupRider';
 import './OrderInCanteen.css';
 
-
-
-function OrderInCanteen() {
-
-    useEffect(() => {
-        const fetchData = async () => {
-          try {
-            const response = await fetch('http://localhost:2580/api/Order/all');
-            if (response.ok) {
-              const data = await response.json();
-              console.log(data);
-            } else {
-              console.error('Failed to fetch data');
-            }
-          } catch (error) {
-            console.error('An error occurred:', error);
-          }
-        };
-    
-        fetchData();
-      }, []);
-    
-      
-  
-      return (
-    <div className="OrderInCanteen">
-        <div className='OrderInCanteen-header'> โรงอาหาร x </div>
-       <div className='OrderALL'>
-            <Order />
-            <Order />
-            <Order />
-            <Order />
-            <Order />
-            <Order />
-            <Order />
-            <Order />
-        </div>
-    </div>
-  );
-}
-
-
-
-
-class Order extends Component {
+class Order_Pickup extends Component {
     constructor(props) {
         super(props);
         this.state = {
           isListShown: true,
             showMenuDetail: false,
+            isPopupOpen: false, 
             
         };
       }
     
 
+      openPopup = () => {
+        this.setState({ isPopupOpen: true });
+      }
+    
+      // ปิด Popup
+      closePopup = () => {
+        this.setState({ isPopupOpen: false });
+      }
+    
+    
       
   toggleMenuDetail = () => {
     this.setState((prevState) => ({
@@ -69,11 +36,12 @@ class Order extends Component {
 
     render() {
          const { isListShown } = this.state;
+         const {fname, lname, phonetel, userlocation ,food ,orderid ,ridername,ridertel} = this.props;
         return (
             <div className="Order">
                 <div className='Order-card'>
 
-                    <div className='Order-card-order'>
+                <div className='Order-card-order'>
                         
                         <div className='header-order'>
                             
@@ -85,21 +53,21 @@ class Order extends Component {
                             <span class="material-symbols-outlined">
                                 account_circle  
                             </span> 
-                            <a>ชื่อลูกค้า</a>
+                            <a>{fname} {lname}</a>
                             </div>
 
                             <div className='grid-order-detail'>
                             <span class="material-symbols-outlined">
                                 call 
                             </span> 
-                            <a>เบอร์โทร</a>
+                            <a>{phonetel}</a>
                             </div>
 
                             <div className='grid-order-detail'>
                             <span class="material-symbols-outlined">
                                 near_me  
                             </span> 
-                            <a>ปลายทาง</a>
+                            <a>{userlocation}</a>
                             </div>
                                
                             </div>
@@ -135,11 +103,9 @@ class Order extends Component {
                         <h4>เมนู</h4>
                         <div className='Order-card-menudetail-detail-menu'>
                             <div className='Order-card-menudetail-detail-menu-overflow'>
-                                <Menu_loop />
-                                <Menu_loop />
-                                <Menu_loop />
-                                <Menu_loop />
-                               
+                            {food.map((food, index) => (
+                                    <Menu_loop key={index} foodname={food.name} foodquatiy={food.quantity} />
+                                ))}
                             </div>
                         
                         </div>
@@ -147,13 +113,29 @@ class Order extends Component {
                         </div>
                     </div>
                     <div className='Order-card-btn'>
-                        <div className='btn-order-grid'>
+                    <div className='btn-order-grid'>
                             <div className='btn-order-status'>
                                 <a>สถานะ:</a> <br />
-                                <button className='btn-order-status-accept green'>หิ้วได้น้า</button>
+                                <button className='btn-order-status-accept blue'>หิ้วแล้ว</button>
                             </div>
+                            {/* <div className='btn-order-agree pick'>
+                                <a>รายละเอียดผู้รับหิ้ว</a>
+                                <p>ชื่อ: {ridername}
+                                <br />
+                                เบอร์โทร: {ridertel}
+                                </p> <br />
+                                
+                            </div> */}
                             <div className='btn-order-agree'>
-                            <button className='btn-order-accept orange'><a>รับงาน</a></button>
+                            <button className='btn-order-accept pink 'onClick={this.openPopup}  ><a><span className="material-symbols-outlined" style={{fontSize:'40px',fontWeight:'bold'}}>
+sports_motorsports
+</span></a></button>
+                            {this.state.isPopupOpen && (
+          <div>
+            <div className='pop-up-overlay'></div>
+            <PopupRider onClose={this.closePopup} riderName={ridername} riderTel={ridertel} />
+          </div>
+        )}
                             </div>
                                 
                         </div>
@@ -165,20 +147,4 @@ class Order extends Component {
     }
 }
 
-class Menu_loop extends Component {
-    render() {
-        return (
-            <div className='Order-card-menudetail-detail-menu-section'>
-                <div className='Order-card-menudetail-detail-menu-section-count'>1</div>
-                <div className='Order-card-menudetail-detail-menu-section-name'>ข้าวมันไก่ทอด
-                <p>ไม่ใส่แตงกวา เพิ่มซีฮ๊วหวาน</p>
-                </div>
-                <div className='Order-card-menudetail-detail-menu-section-price'>45</div>
-            </div>  
-        );
-
-        }
-}
-
-
-export default OrderInCanteen;
+export default Order_Pickup;

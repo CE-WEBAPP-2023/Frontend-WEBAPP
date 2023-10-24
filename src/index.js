@@ -8,6 +8,9 @@ import Home from './pages/Home/Home';
 import About from './pages/AboutUs/About';
 import PageNotFound from './pages/404/PageNotFound';
 import OrderPage from './pages/OrderPage/OrderPage';
+import OrderInCanteen from './pages/OrderCanteen/OrderInCanteen';
+
+import Pickupall from './pages/Pickup/Pickupall';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,7 +21,9 @@ root.render(
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<PageNotFound />} />
-            <Route path="/order" element={<OrderPage />} />
+            <Route path="OrderInCanteen/:canId" element={<OrderInCanteen />} />
+            <Route path="Pickupall/:canId" element={<Pickupall />} />
+            <Route path="/order/:canteen" element={<OrderPage />} />
           </Routes>
         </div>
     }/>

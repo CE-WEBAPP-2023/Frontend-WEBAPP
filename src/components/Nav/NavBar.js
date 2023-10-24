@@ -29,10 +29,10 @@ const NavBar = ({content}) => {
   }, []);
 
   return (
-    <div class="navTemplate">
+    <div className="navTemplate">
         <div className="header">
           <Link to="/">
-            <img src={process.env.PUBLIC_URL + '/assets/webicon/webLogo.png'} alt="WebLogo" class="webLogo" />
+            <img src={process.env.PUBLIC_URL + '/assets/webicon/webLogo.png'} alt="WebLogo" className="webLogo" />
           </Link>
            <span style={{display: 'flex',flex: '1 1 auto'}}></span>
            <div className="icon-container">
