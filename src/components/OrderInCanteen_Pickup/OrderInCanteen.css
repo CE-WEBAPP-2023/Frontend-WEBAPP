@@ -565,6 +565,11 @@ font-size: 16px;
 
   .grid-order-detail a {
     text-align: start;
+    width: 200px; /* กำหนดความยาวขององค์ประกอบ */
+    overflow-x: hidden;
+    white-space: nowrap; /* ไม่ขึ้นบรรทัดใหม่ */
+  
+    text-overflow: ellipsis; /* แสดงจุดที่บ่งบอกว่าข้อความเกินความยาว */
   }
 
   .btn-order-status-accept.blue  {
@@ -614,7 +619,7 @@ font-size: 16px;
     font-family: 'Mitr', sans-serif;
   
     margin-left: 10px;
-    margin-top: 20px;
+    margin-top: 15px;
 
     font-size: 20px;
     text-transform: uppercase;
@@ -628,7 +633,7 @@ font-size: 16px;
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
-
+    
 }
 
 .pop-up-overlay {
@@ -675,6 +680,16 @@ font-size: 16px;
     .Order-pop {
         width: 500px;
     }
+    .grid-order-detail a {
+        text-align: start;
+        width: 300px; /* กำหนดความยาวขององค์ประกอบ */
+        overflow-x: hidden;
+        white-space: nowrap; /* ไม่ขึ้นบรรทัดใหม่ */
+       
+        text-overflow: ellipsis; /* แสดงจุดที่บ่งบอกว่าข้อความเกินความยาว */
+      }
+
+     
 
   }
 
@@ -764,3 +779,21 @@ font-size: 16px;
 
 
 /* CSS สำหรับโต๊ะหรือป็อปอัพ */
+
+
+::-webkit-scrollbar {
+    width: 6px;
+    
+    
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(71, 71, 72);
+  border-radius: 10px;
+  
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(160, 160, 160);
+  border-radius: 10px;
+}

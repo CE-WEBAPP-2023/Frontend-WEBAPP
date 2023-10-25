@@ -43,7 +43,7 @@ const SelectLocation = () => {
 
   const fetchCurrentOrder = async() => {
     setFetchComplete(false);
-    axios.get(`${APIURL}/Order/all`)
+    axios.get(`${APIURL}/Order`)
     .then((response)=>{
       const ordersData = response.data;
       const groupedOrders = ordersData.reduce((grouped, order) => {

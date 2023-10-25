@@ -95,8 +95,9 @@
 .header-order {
    color: #502215;
    display: grid;
-   grid-template-columns: 1fr 1fr;
+   grid-template-columns: 1fr 0.2fr;
    grid-gap: 0px 0px;
+   
 }
 
 /* .Order-card-order-detail {

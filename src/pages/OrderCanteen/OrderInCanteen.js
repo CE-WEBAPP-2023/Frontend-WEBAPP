@@ -4,6 +4,7 @@ import OrderCard from '../../components/OrderInCanteen_Pickup/OrderCard';
 import '../../components/OrderInCanteen_Pickup/OrderInCanteen.css';
 import { useParams ,Link } from 'react-router-dom';
 import serverError from '../500/ServerError';
+import loadingGif from '../../images/loading.gif';
 
 function OrderInCanteen() {
   const [data, setData] = useState([]);
@@ -42,7 +43,9 @@ function OrderInCanteen() {
   return (
     <div className="OrderInCanteen">
 
-      {loading ? ( <div className='loadingpage'> <div className='loader'></div> </div> ) : ( 
+      {loading ? ( <img src={loadingGif} 
+                      alt='loading GIF' 
+                      className='loading' /> ) : ( 
       <div className='bigBoy'>
         <div className='OrderInCanteen-header'>
         <Link to ='/select'> 
