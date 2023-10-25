@@ -134,7 +134,7 @@
     font-size: 20px; /* Font size */
     margin-top: 20px;
     width: 300px;
-    height:280px;
+    height:100%;
     max-width: 300px;
     max-height: 280px;
 }

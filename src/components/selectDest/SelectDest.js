@@ -280,7 +280,7 @@ const SelectDest = (props) => {
             <div className='selectedDescription'>
               <div className='description'>
                 รายละเอียดเพิ่มเติม
-                <form >
+                <form style={{height:'80%',width: '95%'}}>
                 <textarea
                   className="textured-input"
                   type="text"

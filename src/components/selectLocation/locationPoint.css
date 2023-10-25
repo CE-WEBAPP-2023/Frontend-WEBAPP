@@ -2,7 +2,33 @@
     position: absolute;
     transform: translate(-50%, -100%);
 }
-
+.canteenStatus{
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    background: rgb(255, 255, 255);
+    padding: 2px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: all 0.5s;
+}
+.canteenStatus.showDetail{
+    left:100%;
+    transform: translate(10%,-60%);
+    opacity: 1;
+}
+.canteenStatus i{
+    font-size: 40px;   
+}
+.status{
+    display: flex;
+}
+.statusDetail{
+    margin-left: 10px;
+    padding-right: 5px;
+}
 .mesBox {
     width: 200px;
     height: 88px;
@@ -39,5 +65,11 @@
     }
     .marked{
         font-size: 40px;
+    }
+    .canteenStatus{
+        font-size: 10px;
+    }
+    .canteenStatus i{
+        font-size: 30px;
     }
 }

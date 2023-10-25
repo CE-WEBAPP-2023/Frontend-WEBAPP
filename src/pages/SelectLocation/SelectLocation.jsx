@@ -131,26 +131,24 @@ const SelectLocation = () => {
                       <div className='nameCanteen'>{loc.name}</div>
                       {isShow === index && <i className={`material-icons marked`}>location_on</i>}
                     </div>
+                    {
+                      (fetchComplete && userMode == 1) && (
+                        <div className={`canteenStatus ${showDetail === index ? 'showDetail' : ''}`}>
+                          {
+                            orders[showDetail + 1]?.length > 0 ? (
+                              <div className='status'>
+                                <i className={`material-icons happyFace`}>sentiment_very_satisfied</i>
+                                <span className='statusDetail'> {orders[showDetail + 1]?.length} Orders</span>
+                              </div>
+                            ) : (
+                              <i className={`material-icons sadFace`}>sentiment_very_dissatisfied</i>
+                            )
+                          }
+                        </div>
+                    )}
                   </div>
                 ))
               }
-              {/* {
-                showDetail && (
-                  <div className='positioned-element'
-                    // style={{top: `${positions[showDetail].y}%`,
-                    //   left: `${positions[showDetail].x}%`,
-                    //   transform: 'translate(-50%, -120%)'
-                    // }} 
-                  >
-                    {
-                      orders[showDetail+1].length > 0 ?
-                      <div>
-                        <i className={`material-icons happyFace`}>sentiment_very_dissatisfied</i>
-                      </div> :
-                      <i className={`material-icons sadFace`}>sentiment_very_dissatisfied</i>
-                    }
-                  </div>
-              )} */}
             </div>
             <div className='gradient-top'id="zoom-image">
             </div>
@@ -159,7 +157,6 @@ const SelectLocation = () => {
                 <i className="material-icons" onClick={handleZoomIn}>zoom_in</i>
                 <i className="material-icons" onClick={handleZoomOut}>zoom_out</i>
                 <i className="material-icons" onClick={refetch}>refresh</i>
-                <span className="material-icons" >{fetchComplete ? 'check_cirlce':'error'}</span>
                 
             </div>
             <div className='gradient-bot' id="zoom-image">

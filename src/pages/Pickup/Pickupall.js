@@ -4,7 +4,7 @@ import { APIURL } from '../../config';
 
 import loadingGif from '../../images/loading.gif';
 
-import { useParams ,Link  } from 'react-router-dom'; 
+import { useParams ,Link ,useNavigate } from 'react-router-dom'; 
 
 import OrderPickup from '../../components/OrderInCanteen_Pickup/Order_Pickup';
 
@@ -14,6 +14,7 @@ import serverError from '../500/ServerError';
 
 
 function Pickupall() {
+    const navigate = useNavigate();
     const [data, setData] = useState([]);
     const [loading,setLoading] = useState(true);
     const { canId } = useParams();
@@ -58,7 +59,7 @@ function Pickupall() {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         {loading ? ( <img src={loadingGif} 
                       alt='loading GIF' 
-                      className='loading' />) : ( <div className='bigBoy'> 
+                      className='loading' />) : ( <div className='bigBoy'>
         <div className='OrderInCanteen-header'>
         <Link to ='/Pickuppage'> 
           <span className="material-symbols-outlined OrderInCanteen-header-arrow">

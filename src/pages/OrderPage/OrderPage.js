@@ -89,6 +89,7 @@ function OrderPage() {
             console.log(JSON.stringify(formValue,null,2))
             console.log(orders)
             console.log(`${APIURL}/Order/post`);
+            setOrderComplete(true)
             axios.post(`${APIURL}/Order/post`,{
                 user: {
                     name: fname,
@@ -103,11 +104,8 @@ function OrderPage() {
                 food: orders
             }).then((respose)=>{
                 console.log(respose)
-                setOrderComplete(true)
-                setInterval(()=>{
-                    navigate(`/pickupall/${Cid}`)
-                    setOrderComplete(true) 
-                },1500)
+                setOrderComplete(false)
+                navigate(`/select`)
             }).catch((err)=>{
                 console.log(err)
             })

@@ -86,7 +86,10 @@
     width: 20px;
     font-size: 20px;
     color: white;
-    background: #05017ab2;
+    /* background: #0a8f03; */
+}
+#done{
+    background: #19ed0d;
 }
 #zoom-image {
     transition: transform 0.4s;
@@ -172,6 +175,5 @@
         width: 15px;
         font-size: 15px;
         color: white;
-        background: #05017ab2;
     }
   }

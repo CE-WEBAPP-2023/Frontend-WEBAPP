@@ -1,13 +1,15 @@
-import React, {  useEffect, useState } from 'react';
-
+import React from 'react';
 import '../../components/PickupAll/Pickupall.css'
-import { Link  } from 'react-router-dom'; 
+import { Link, useNavigate  } from 'react-router-dom'; 
+
 function Pickupall() {
-    
-    
+    const navigate = useNavigate()
     return (
-    <div className='PickCanteen'>
+    <div className='fillParent'>
         <div className='text-header-canteen'>
+            <span className="material-symbols-outlined" style={{cursor:'pointer',color:'#502215'}} onClick={() => navigate('/select')}>
+                arrow_back_ios
+            </span>
             ตรวจสอบออเดอร์ที่หิ้วไปแล้ว 
         </div>
         <div className='PickSelect'>
