@@ -1,15 +1,11 @@
 import React, { Component, useState } from 'react';
 
-
 import './OrderInCanteen.css';
 import Menu_loop from './Menu';
 import { APIURL } from '../../config';
-import axios  from 'axios';
-
 
 class Popupselect extends Component {
-    
-    
+
     handleClose = () => {
       this.props.onClose(); // ส่งคำสั่งไปยัง YourComponent เพื่อปิด Popup
     }
@@ -35,6 +31,7 @@ class Popupselect extends Component {
           
       };
     }
+    
     handleInputChange = (event) => {
       const { name, value } = event.target;
       
@@ -65,37 +62,32 @@ class Popupselect extends Component {
         const url = `${APIURL}/Order/grab/${this.props.orderid}`;
         
         const data = {
-          name: this.state.name,
-          lastName: this.state.lastName,
-          phoneNumber: this.state.phoneNumber,
+            name: this.state.name,
+            lastName: this.state.lastName,
+            phoneNumber: this.state.phoneNumber,
         };
   
-        
-        axios.put(url, data, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
-        .then((response) => {
-          console.log(response);
-          console.log('ส่งข้อมูลสำเร็จ', response.data);
-         
-          
-           
-          
-          this.handleClose();
-           
-          alert('รับหิ้วแล้ว');
-          window.location.reload();
+        async function grabfood(json, callback) {
+          await fetch(url, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(json),
+          })
+          .then(response => response)
+          .then((data) => {
+              console.log('ส่งข้อมูลสำเร็จ', data)
+              callback();
+              alert('รับหิ้วแล้ว');
+              window.location.reload();
+          })
+          .catch(error => console.error('Error:', error));
+        };
 
-
-          // ทำอะไรสักอย่างหลังจากส่งข้อมูลสำเร็จ
-        })
-        .catch((error) => {
-          console.error('เกิดข้อผิดพลาดในการส่งข้อมูล:', error);
-        });
-  
+        grabfood(data, this.handleClose);
       }
+      
     }
   
   
