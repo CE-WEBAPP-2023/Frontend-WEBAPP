@@ -116,7 +116,7 @@ class Order_Pickup extends Component {
                     <div className='btn-order-grid'>
                             <div className='btn-order-status'>
                                 <a>สถานะ:</a> <br />
-                                <button className='btn-order-status-accept blue'>หิ้วแล้ว</button>
+                                <div className='btn-order-status-accept blue'>หิ้วแล้ว</div>
                             </div>
                             {/* <div className='btn-order-agree pick'>
                                 <a>รายละเอียดผู้รับหิ้ว</a>
@@ -132,7 +132,7 @@ sports_motorsports
 </span></a></button>
                             {this.state.isPopupOpen && (
           <div>
-            <div className='pop-up-overlay'></div>
+            
             <PopupRider onClose={this.closePopup} riderName={ridername} riderTel={ridertel} />
           </div>
         )}
