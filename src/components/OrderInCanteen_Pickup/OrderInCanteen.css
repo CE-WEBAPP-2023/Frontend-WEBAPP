@@ -365,12 +365,14 @@
 .btn-order-status-accept {
 
 /* Rectangle 34 */
-
+cursor: none;
 height: 50px;
 width: 100px;
 font-family: 'Mitr', sans-serif;
 margin-bottom: 10px;
 margin-left: 10px;
+pointer-events: none;
+
 
 font-size: 16px;
   text-transform: uppercase;
@@ -388,6 +390,7 @@ font-size: 16px;
 
 .btn-order-status-accept.green {
     background-color: #96BB7C;
+    cursor: none;
 }
 
 
@@ -574,6 +577,10 @@ font-size: 16px;
 
   .btn-order-status-accept.blue  {
     background-color: #79aeb1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ cursor: none;    
 }
 
 .btn-order-accept.red {

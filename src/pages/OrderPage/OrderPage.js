@@ -3,7 +3,6 @@ import '../../components/OrderPage/InputField';
 import React, { useState } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
 import { APIURL } from '../../config';
-import axios from "axios"
 import SelectDest from '../../components/selectDest/SelectDest';
 import mapButton from '../../images/map.png';
 import orderButton from '../../images/order-now.png';
@@ -82,7 +81,7 @@ function OrderPage() {
 
     const [orderComplete, setOrderComplete] = useState(false);
     const canteenNames = ["โรง A","โรง J","โรง C","โรงพระเทพ"]
-    function handleSubmit() {
+    async function handleSubmit() {
         const isFormValid = Object.values(formValue).every(value => value !== '');
         if (isFormValid) {
             console.log("hello chatree")
@@ -90,25 +89,34 @@ function OrderPage() {
             console.log(orders)
             console.log(`${APIURL}/Order/post`);
             setOrderComplete(true)
-            axios.post(`${APIURL}/Order/post`,{
-                user: {
-                    name: fname,
-                    lastName: lname,
-                    phoneNumber: tel
+            await fetch(`${APIURL}/Order/post`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
                 },
-                userLocation: address,
-                canteen: {
-                    canteenId: Cid,
-                    canteenName: canteenNames[Cid-1]
-                },
-                food: orders
-            }).then((respose)=>{
-                console.log(respose)
+                body: JSON.stringify({
+                    user: {
+                        name: fname,
+                        lastName: lname,
+                        phoneNumber: tel
+                    },
+                    userLocation: address,
+                    canteen: {
+                        canteenId: Cid,
+                        canteenName: canteenNames[Cid-1]
+                    },
+                    food: orders
+                }),
+            })
+            .then(response => response)
+            .then((data) => {
+                console.log('ส่งข้อมูลสำเร็จ', data)
                 setOrderComplete(false)
                 navigate(`/select`)
-            }).catch((err)=>{
-                console.log(err)
             })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
         } else{
             alert('โปรดกรอกข้อมูลให้ครบถ้วน');
         }

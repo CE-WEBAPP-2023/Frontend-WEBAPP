@@ -3,7 +3,6 @@ import React, { Component, useEffect, useState } from 'react';
 import './OrderInCanteen.css';
 import Menu_loop from './Menu';
 import { APIURL } from '../../config';
-import axios  from 'axios';
 
 
 class PopupRider extends Component {
@@ -42,7 +41,9 @@ class PopupRider extends Component {
       const {riderName,riderTel } = this.props;
      
       return (
-    <div className="Order-pop" onClick={this.handleClose}>
+        <div className='Rider'>
+        <div className='pop-up-overlay' onClick={this.handleClose}></div>
+    <div className="Order-pop" onClick={this.handleClose} >
         <div className='Order-card'>
         <div className='Order-card-order-rider' onClick={this.handleClose}>
                 
@@ -81,6 +82,7 @@ class PopupRider extends Component {
             </div>
 
         </div>
+    </div>
     </div>
       );
   

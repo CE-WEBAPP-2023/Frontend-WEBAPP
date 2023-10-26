@@ -6,7 +6,6 @@ import kmitlMap from '../../images/kmitlMap.jpg';
 import mesBox from '../../images/mesBox.png';
 import { useNavigate } from 'react-router-dom';
 import { APIURL } from '../../config';
-import axios from "axios"
 const SelectLocation = () => {
 
   const positions = [
@@ -43,25 +42,31 @@ const SelectLocation = () => {
 
   const fetchCurrentOrder = async() => {
     setFetchComplete(false);
-    axios.get(`${APIURL}/Order`)
-    .then((response)=>{
-      const ordersData = response.data;
-      const groupedOrders = ordersData.reduce((grouped, order) => {
-        const { canteenId } = order.canteen;
-        if (!grouped[canteenId]) {
-          grouped[canteenId] = [];
-        }
-        grouped[canteenId].push(order);
-        return grouped;
-      }, {});
 
-      setOrders(groupedOrders);
-      setFetchComplete(true);
-      console.log(groupedOrders);
-    }).catch((err)=>{
-        console.log(err);
-    })
-  };
+    try {
+    const response = await fetch(`${APIURL}/Order`);
+    if (!response.ok) {
+      throw new Error(`Network response was not ok: ${response.status}`);
+    }
+
+    const ordersData = await response.json();
+
+    const groupedOrders = ordersData.reduce((grouped, order) => {
+      const { canteenId } = order.canteen;
+      if (!grouped[canteenId]) {
+        grouped[canteenId] = [];
+      }
+      grouped[canteenId].push(order);
+      return grouped;
+    });
+
+    setOrders(groupedOrders);
+    setFetchComplete(true);
+    console.log(groupedOrders);
+  } catch (error) {
+    console.error(error);
+  }
+};
   useEffect(() => {
     fetchCurrentOrder();
     if (window.innerWidth <= 900) {
@@ -132,7 +137,7 @@ const SelectLocation = () => {
                       {isShow === index && <i className={`material-icons marked`}>location_on</i>}
                     </div>
                     {
-                      (fetchComplete && userMode == 1) && (
+                      (fetchComplete && userMode === 1) && (
                         <div className={`canteenStatus ${showDetail === index ? 'showDetail' : ''}`}>
                           {
                             orders[showDetail + 1]?.length > 0 ? (
