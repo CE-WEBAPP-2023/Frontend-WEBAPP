@@ -156,7 +156,7 @@ const SelectLocation = () => {
             <div className='gradient-right' id="zoom-image">
                 <i className="material-icons" onClick={handleZoomIn}>zoom_in</i>
                 <i className="material-icons" onClick={handleZoomOut}>zoom_out</i>
-                <i className="material-icons" onClick={refetch}>refresh</i>
+                <i className="material-icons" style={{background:`${fetchComplete ? "black":"red"}`}} onClick={refetch}>refresh</i>
                 
             </div>
             <div className='gradient-bot' id="zoom-image">

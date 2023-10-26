@@ -83,7 +83,9 @@ function OrderPage() {
     const [orderComplete, setOrderComplete] = useState(false);
     const canteenNames = ["โรง A","โรง J","โรง C","โรงพระเทพ"]
     function handleSubmit() {
-        const isFormValid = Object.values(formValue).every(value => value !== '');
+        console.log(orders)
+        const isFormValid = Object.values(formValue).every(value => value !== '') && orders.length > 0;
+        console.log(isFormValid)
         if (isFormValid) {
             console.log("hello chatree")
             console.log(JSON.stringify(formValue,null,2))
