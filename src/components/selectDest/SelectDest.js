@@ -4,6 +4,7 @@ import './destPoint.css';
 import '../selectLocation/selectLocation.css'
 import kmitlMap from '../../images/kmitlMap.jpg';
 import mesBox from '../../images/mesBox.png';
+import { APIURL } from '../../config';
 
 const SelectDest = (props) => {
   const imageMap = useRef(null);
@@ -11,159 +12,35 @@ const SelectDest = (props) => {
   const [zoom, setZoom] = useState(1);
   const [W,setW] = useState(1200);
   const [description,setDescription] = useState('');
-  const positions = [
-    {
-      name : 'สนามกีฬา',
-      x : 15.63,
-      y : 17.11,
-    },
-    {
-        name : 'โรงยิม 2',
-        x : 22.73,
-        y : 37.81,
-    },
-    {
-        name : 'หอใน',
-        x : 36.94,
-        y : 30.81,
-    },
-    {
-        name : 'สมาคมศิษย์เก่า สจล.',
-        x : 40.81,
-        y : 11.34,
-    },
-    {
-      name : 'คณะแพทย์ศาสตร์',
-      x : 52.99,
-      y : 8.13,
-    },
-    {
-        name : 'สระว่ายน้ำ',
-        x : 51.62,
-        y : 14.93,
-    },
-    {
-        name : 'นวัตกรรมการผลิต',
-        x : 49.25,
-        y : 21.74,
-    },
-    {
-        name : 'ศูนย์วิจัยอัตโนมัติ',
-        x : 61.56,
-        y : 31.66,
-    },
-    {
-        name : 'คลินิก สจล.',
-        x : 71.43,
-        y : 28.92,
-    },
-    {
-        name : 'วิทยาลัยนาโน',
-        x : 73.74,
-        y : 35.16,
-    },
-    {
-      name : 'พลาซ่าอเวนิว',
-      x : 66.77,
-      y : 38.19,
-    },
-    {
-        name : 'อาคารพระเทพ',
-        x : 64.01,
-        y : 16.82,
-    },
-    {
-        name : 'นานาชาติ สจล.',
-        x : 74.66,
-        y : 11.34,
-    },
-    {
-        name : 'สำนักงานอธิการบดี',
-        x : 85.95,
-        y : 11.34,
-    },
-    {
-        name : 'ตึกโหล',
-        x : 13.68,
-        y : 56.0,
-    },
-    {
-      name : 'ECC',
-      x : 51.78,
-      y : 31.66,
-    },
-    {
-        name : 'วิศวกรรมอุตสาหกรรม',
-        x : 23.84,
-        y : 50.95,
-    },
-    {
-        name : 'วิศวกรรมการวัดคุม',
-        x : 39.23,
-        y : 51.32,
-    },
-    {
-      name : 'วิศวกรรมเครื่องกล',
-      x : 32.2,
-      y : 51.32,
-    },
-    {
-        name : 'วิศวกรรมอิเล็กทรอนิกส์',
-        x : 50.04,
-        y : 52.55,
-    },
-    {
-        name : 'วิศวกรรมโทรคมนาคม',
-        x : 59.43,
-        y : 54.73,
-    },
-    {
-        name : 'หอประชุม สจล.',
-        x : 71.98,
-        y : 54.25,
-    },
-    {
-        name : 'ตึก A วิศวะ',
-        x : 62.9,
-        y : 62.76,
-    },
-    {
-        name : 'ตึก HM',
-        x : 45.54,
-        y : 66.64,
-    },
-    {
-        name : 'วิศวกรรมโยธา',
-        x : 35.99,
-        y : 65.97,
-    },
-    {
-        name : 'วิศวกรรมเคมี อาหาร',
-        x : 22.1,
-        y : 67.49,
-    },
-    {
-        name : 'อาคารบูรณาการ',
-        x : 31.89,
-        y : 78.92,
-    },
-    {
-        name : 'อาคารเรียนรวมสถาปัตย์',
-        x : 48.3,
-        y : 85.44,
-    },
-    {
-        name : 'หอประชุมสถาปัตย์',
-        x : 43.09,
-        y : 78.92,
-    },
-    {
-        name : 'อาคารวิจัยกลางน้ำ',
-        x : 63.14,
-        y : 84.59,
-    },
-  ];
+  const getMapData = async () => {
+    try {
+      const positionsRes = await fetch(`${APIURL}/Map`);
+      const positionsData = await positionsRes.json();
+      let pos = [];
+      for (let i = 0; i < positionsData.length; i++) {
+        pos.push({
+          name: positionsData[i].name,
+          x: positionsData[i].x,
+          y: positionsData[i].y,
+        });
+      }
+      return pos;
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  const [positions, setPositions] = useState([]);
+
   useEffect(() => {
+    getMapData()
+      .then((data) => {
+        setPositions(data);
+      })
+      .catch((error) => {
+        console.error('Error getting map data:', error);
+      });
+
     if (window.innerWidth <= 640) {
       setW(720);
     }
