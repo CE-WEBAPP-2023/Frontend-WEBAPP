@@ -50,21 +50,21 @@ class Order_Pickup extends Component {
                             <div className='Order-card-order-detail-detail'>
 
                             <div className='grid-order-detail'>
-                            <span class="material-symbols-outlined">
+                            <span className="material-symbols-outlined">
                                 account_circle  
                             </span> 
                             <a>{fname} {lname}</a>
                             </div>
 
                             <div className='grid-order-detail'>
-                            <span class="material-symbols-outlined">
+                            <span className="material-symbols-outlined">
                                 call 
                             </span> 
                             <a>{phonetel}</a>
                             </div>
 
                             <div className='grid-order-detail'>
-                            <span class="material-symbols-outlined">
+                            <span className="material-symbols-outlined">
                                 near_me  
                             </span> 
                             <a>{userlocation}</a>

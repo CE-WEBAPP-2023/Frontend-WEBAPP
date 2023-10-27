@@ -13,7 +13,7 @@ import SelectLocation from './pages/SelectLocation/SelectLocation';
 import Pickupall from './pages/Pickup/Pickupall';
 import Pickuppage from './pages/PickupPage/PickupPage';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'),(document.title = 'Food King'));
 root.render(
   <BrowserRouter>
     <Navbar content = {

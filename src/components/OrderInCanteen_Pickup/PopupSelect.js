@@ -66,7 +66,7 @@ class Popupselect extends Component {
             lastName: this.state.lastName,
             phoneNumber: this.state.phoneNumber,
         };
-  
+        
         async function grabfood(json, callback) {
           await fetch(url, {
             method: 'PUT',
@@ -77,6 +77,7 @@ class Popupselect extends Component {
           })
           .then(response => response)
           .then((data) => {
+            console.log(data)
               console.log('ส่งข้อมูลสำเร็จ', data)
               callback();
               alert('รับหิ้วแล้ว');

@@ -1,7 +1,7 @@
 import React, { Component, useEffect, useState } from 'react';
 
 import './OrderInCanteen.css';
-import Menu_loop from './Menu';
+import Menuloop from './Menu';
 import Popupselect from './PopupSelect';
 
 
@@ -115,7 +115,7 @@ class OrderCard extends Component {
                            
                            
                                 {food.map((food, index) => (
-                                    <Menu_loop key={index} foodname={food.name} foodquatiy={food.quantity} />
+                                    <Menuloop key={index} foodname={food.name} foodquatiy={food.quantity} />
                                 ))}
                                
                             </div>
